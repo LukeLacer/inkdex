@@ -1,3 +1,4 @@
-import Home from "./Home";
+import Home from './Home'
+import DragAndDropExample from './DragAndDropExample'
 
-export { Home };
+export { Home, DragAndDropExample }
