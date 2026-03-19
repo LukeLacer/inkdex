@@ -1,0 +1,16 @@
+import React from "react";
+import { Route, HashRouter, Routes as Routing } from "react-router-dom";
+
+import { Home } from "./pages";
+
+const Routes = () => {
+  return(
+      <HashRouter>
+          <Routing>
+            <Route Component = { Home }  path="/" />
+          </Routing>
+      </HashRouter>
+  )
+}
+
+export default Routes
