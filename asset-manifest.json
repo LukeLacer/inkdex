@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/inkdex.com.br/static/css/main.9d84d107.css",
+    "main.js": "/inkdex.com.br/static/js/main.3c5fd02a.js",
+    "index.html": "/inkdex.com.br/index.html",
+    "main.9d84d107.css.map": "/inkdex.com.br/static/css/main.9d84d107.css.map",
+    "main.3c5fd02a.js.map": "/inkdex.com.br/static/js/main.3c5fd02a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d84d107.css",
+    "static/js/main.3c5fd02a.js"
+  ]
+}
