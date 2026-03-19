@@ -1,10 +1,27 @@
-## Deploy Your Own
+# How to use
 
-Deploy your own Create React App project with Vercel.
+## Access
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+[Production Link](https://inkdex.com.br)
 
-_Live Example: https://create-react-template.vercel.app/_
+## Search Engine 101
+
+* [CODE]:"[SEARCH_VALUE_WITH_SPACES]" or [CODE]:[SEARCH_VALUE_WITH_NO_SPACES]
+* Codes:
+
+  > s (card set)
+
+  > n (card number)
+
+  > c  (card color)
+
+  > t  (card category: Leader, Stage, Event, Character)
+
+  > e  (effects)
+
+* code is case sensitive but search values aren't
+
+# Devs
 
 ## Available Scripts
 
@@ -26,22 +43,10 @@ Builds the app for production to the `build` folder.
 
 It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
-# TODO
+## TODO
 
 * Infinite Scroll
 
-# Search Engine 101
-
-* [CODE]:"[SEARCH_VALUE_WITH_SPACES]" or [CODE]:[SEARCH_VALUE_WITH_NO_SPACES]
-* Codes:
-** s (card set)
-** n (card number)
-** c  (card color)
-** t  (card category: Leader, Stage, Event, Character)
-** e  (effects)
-
-* code is case sensitive but search values aren't
-
-# Regards
+## Regards
 
 This repository was created with [Create React App](https://github.com/facebook/create-react-app) 
