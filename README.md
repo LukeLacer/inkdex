@@ -1,7 +1,3 @@
-# Create React App
-
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
-
 ## Deploy Your Own
 
 Deploy your own Create React App project with Vercel.
@@ -30,11 +26,12 @@ Builds the app for production to the `build` folder.
 
 It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
-#TODO
+# TODO
 
-*Infinite Scroll
+* Infinite Scroll
 
-#Search Engine 101
+# Search Engine 101
+
 * [CODE]:"[SEARCH_VALUE_WITH_SPACES]" or [CODE]:[SEARCH_VALUE_WITH_NO_SPACES]
 * Codes:
 ** s (card set)
@@ -44,3 +41,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ** e  (effects)
 
 * code is case sensitive but search values aren't
+
+# Regards
+
+This repository was created with [Create React App](https://github.com/facebook/create-react-app) 
