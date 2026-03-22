@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import './styles.css'
 
 import { Input, Button } from '../../components'
+import { homeStrings } from '../../utils/strings'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
@@ -25,11 +26,8 @@ const Home = () => {
     return (
         <div className='home-wrapper'>
             <div className='search-wrapper'>
-                <h1>Inkdex</h1>
-                <p>
-                    Welcome to the home page! This website is a deckbuilder, card
-                    searcher and more for your Lorcana TCG game.
-                </p>
+                <h1>{homeStrings.title}</h1>
+                <p>{homeStrings.subtitle}</p>
                 <Input
                     type='text'
                     autoFocus
@@ -37,7 +35,7 @@ const Home = () => {
                     onKeyDown={(e) => handleKeyDown(e)}
                 />
                 <Button onClick={() => clickSearchHandler()}>
-                    Buscar
+                    {homeStrings.searchButtonLabel}
                 </Button>
             </div>
         </div>
