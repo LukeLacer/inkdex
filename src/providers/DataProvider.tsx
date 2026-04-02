@@ -6,9 +6,9 @@ interface DataProviderProps {
 }
 
 export const DataProvider = ({ children }: DataProviderProps) => {
-  const [data, setData] = useState<boolean>(defaultDataContext.data);
+  const [allCards, setAllCards] = useState<DataContextType['allCards']>(defaultDataContext.allCards);
   
-  const value: DataContextType = { data, setData };
+  const value: DataContextType = { allCards, setAllCards };
 
   return (
     <DataContext.Provider value={value}>

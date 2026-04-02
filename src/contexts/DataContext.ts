@@ -1,13 +1,14 @@
 import { createContext } from 'react';
+import { Card } from '../types';
 
 export interface DataContextType {
-  data: any;
-  setData: (data: any) => void;
+  allCards: Array<Card> | undefined;
+  setAllCards: (allCards: Array<Card> | undefined) => void;
 }
 
 export const defaultDataContext: DataContextType = {
-  data: {},
-  setData: () => {},
+  allCards: [],
+  setAllCards: () => {},
 };
 
 export const DataContext = createContext<DataContextType>(defaultDataContext);

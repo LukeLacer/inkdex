@@ -6,23 +6,23 @@ import { homeStrings } from '../../utils/strings'
 import { parseCSVToJSON, unzipPublicFile } from '../../utils'
 import { DataContext, DataContextType, LoadingContext, LoadingContextType } from '../../contexts'
 import './styles.css'
+import { Card } from '../../types'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
     const { setLoading } = useContext<LoadingContextType>(LoadingContext);
-    const { setData } = useContext<DataContextType>(DataContext);
+    const { setAllCards } = useContext<DataContextType>(DataContext);
 
     const navigate = useNavigate()
 
 
     useEffect(() => {
         const fetchCardData = async () => {
-            setLoading(true, 'Processing card data...')
+            setLoading(true, homeStrings.cardLoadingMessage)
             try {
                 unzipPublicFile('./cards.zip').then((file) => {
-                    setData(parseCSVToJSON(file))
+                    setAllCards(parseCSVToJSON(file) as Array<Card>)
                     setLoading(false)
-                    console.log(parseCSVToJSON(file))
                 })
             } catch (error) {
                 console.error('Fetch error:', error)
@@ -30,6 +30,7 @@ const Home = () => {
         }
 
         fetchCardData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const clickSearchHandler = () => {
