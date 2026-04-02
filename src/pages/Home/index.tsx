@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import './styles.css'
-
 import { Input, Button } from '../../components'
 import { homeStrings } from '../../utils/strings'
+import './styles.css'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
