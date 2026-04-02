@@ -6,7 +6,7 @@ import { homeStrings } from '../../utils/strings'
 import { parseCSVToJSON, unzipPublicFile } from '../../utils'
 import { DataContext, DataContextType, LoadingContext, LoadingContextType } from '../../contexts'
 import './styles.css'
-import { Card } from '../../types'
+import { Card } from '../..//searchEngine/types'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')

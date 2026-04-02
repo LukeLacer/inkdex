@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Card } from '../types';
+import { Card } from '../searchEngine/types';
 
 export interface DataContextType {
   allCards: Array<Card> | undefined;

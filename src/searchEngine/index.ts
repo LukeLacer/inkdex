@@ -1,11 +1,40 @@
-import { CardType } from './types'
+import { Card } from './types'
 import { filterCardListByPropertyList, getCardProperties } from './utils'
 
 const find = (
-    allcards: Array<CardType>,
+    allcards: Array<Card> | undefined,
     searchValue: string
-): Array<CardType> => {
-    var result: Array<CardType> = allcards
+): Array<Card> | undefined => {
+    var result: Array<Card> | undefined = allcards
+
+    const defaultCard: Card = {
+        Abilities: 'string',
+        Artist: 'string',
+        Body_Text: 'string',
+        Card_Variants: 'string',
+        Classifications: 'string',
+        Color: 'string',
+        Cost: 0,
+        Flavor_Text: 'string',
+        Franchise: 'string',
+        Image: 'string',
+        Inkable: true,
+        Lore: 0,
+        Move_Cost: 0,
+        Name: 'string',
+        Rarity: 'string',
+        Strength: 0,
+        Type: 'string',
+        Willpower: 0,
+        prints: ['string', 'string'],
+    }
+
+    for (const [key, value] of Object.entries(defaultCard)) {
+        const isArr = Object.prototype.toString.call(value) === '[object Array]';
+        const type = isArr ? 'array' : typeof value
+
+        console.log(`${key}: ${value} -> ${type} |${typeof key}|`);
+    }
 
     const cardSets = getCardProperties('s', searchValue)
     const cardNumbers = getCardProperties('n', searchValue)
@@ -16,12 +45,12 @@ const find = (
 
     const lowercaseSearchValue = searchValue.toLowerCase()
 
-    result = filterCardListByPropertyList(result, cardSets, 'code')
-    result = filterCardListByPropertyList(result, cardNumbers, 'code')
-    result = filterCardListByPropertyList(result, cardColors, 'color')
-    result = filterCardListByPropertyList(result, cardCategories, 'category')
-    result = filterCardListByPropertyList(result, cardEffects, 'effects')
-    result = filterCardListByPropertyList(result, cardNames, 'name')
+    result = filterCardListByPropertyList(result, cardSets, 'Name')
+    result = filterCardListByPropertyList(result, cardNumbers, 'Name')
+    result = filterCardListByPropertyList(result, cardColors, 'Name')
+    result = filterCardListByPropertyList(result, cardCategories, 'Name')
+    result = filterCardListByPropertyList(result, cardEffects, 'Name')
+    result = filterCardListByPropertyList(result, cardNames, 'Name')
 
     if (
         [
@@ -33,24 +62,25 @@ const find = (
             ...cardNames,
         ].length <= 0
     ) {
-        result = result.filter((card) => {
-            const lowercaseColor = card.color.map((color) =>
+        if (!result?.length) return
+        result = result!.filter((card) => {
+            const lowercaseColor = card.prints.map((color) =>
                 color.toLowerCase()
             )
-            const lowercaseTypes = card.types.map((type) => type.toLowerCase())
+            const lowercaseTypes = card.prints.map((type) => type.toLowerCase())
 
             return (
-                card.attribute.toLowerCase().includes(lowercaseSearchValue) ||
-                card.category.toLowerCase().includes(lowercaseSearchValue) ||
-                card.code.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
                 lowercaseColor.includes(lowercaseSearchValue) ||
-                card.cost.toLowerCase().includes(lowercaseSearchValue) ||
-                card.counter.toLowerCase().includes(lowercaseSearchValue) ||
-                card.effects.toLowerCase().includes(lowercaseSearchValue) ||
-                card.life.toLowerCase().includes(lowercaseSearchValue) ||
-                card.name.toLowerCase().includes(lowercaseSearchValue) ||
-                card.power.toLowerCase().includes(lowercaseSearchValue) ||
-                card.rarity.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
+                card.Name.toLowerCase().includes(lowercaseSearchValue) ||
                 lowercaseTypes.includes(lowercaseSearchValue)
             )
         })

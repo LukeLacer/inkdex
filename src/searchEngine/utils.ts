@@ -1,4 +1,4 @@
-import { CardType } from './types'
+import { Card } from './types'
 
 const getCardProperties = (searchedProperty: string, searchValue: string) => {
     const cardSetRegexQuot = new RegExp(searchedProperty + ':"(.*?)"', 'g')
@@ -20,10 +20,11 @@ const getCardProperties = (searchedProperty: string, searchValue: string) => {
 }
 
 const filterCardListByPropertyList = (
-    cardList: Array<CardType>,
+    cardList: Array<Card> | undefined,
     propertyList: Array<string>,
-    property: keyof CardType
-): Array<CardType> => {
+    property: keyof Card
+): Array<Card> | undefined => {
+    if (!cardList?.length) return
     var arrayToReturn = cardList
 
     propertyList.forEach((propertyValue) => {

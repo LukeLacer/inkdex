@@ -1,27 +1,27 @@
-type CardType = {
+export interface Card {
+    Abilities: string
     Artist: string
-    Set_Name: string
-    Classifications: Array<string>
-    Date_Added: string
-    Set_Num: number
-    Color: Array<string>
-    Gamemode: string
+    Body_Text?: string
+    Card_Variants: string
+    Classifications?: string
+    Color: string
+    Cost: number
+    Flavor_Text?: string
     Franchise: string
     Image: string
-    Cost: number
     Inkable: boolean
+    Lore?: number
+    Move_Cost: number
     Name: string
-    Type: string
-    Lore: number
     Rarity: string
-    Flavor_Text: string
-    Unique_ID: string
-    Card_Num: number
-    Body_Text: string
-    Willpower: number
-    Date_Modified: string
-    Strength: number
-    Set_ID: string
+    Strength?: number
+    Type: string
+    Willpower?: number
+    prints: string[]
 }
 
-export type { CardType }
+export interface Set {
+    Set_ID: string
+    Set_Name: string
+    Set_Num: number
+}
