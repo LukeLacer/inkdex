@@ -1,14 +1,36 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Input, Button } from '../../components'
 import { homeStrings } from '../../utils/strings'
+import { parseCSVToJSON, unzipPublicFile } from '../../utils'
+import { DataContext, DataContextType, LoadingContext, LoadingContextType } from '../../contexts'
 import './styles.css'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
+    const { setLoading } = useContext<LoadingContextType>(LoadingContext);
+    const { setData } = useContext<DataContextType>(DataContext);
 
     const navigate = useNavigate()
+
+
+    useEffect(() => {
+        const fetchCardData = async () => {
+            setLoading(true, 'Processing card data...')
+            try {
+                unzipPublicFile('./cards.zip').then((file) => {
+                    setData(parseCSVToJSON(file))
+                    setLoading(false)
+                    console.log(parseCSVToJSON(file))
+                })
+            } catch (error) {
+                console.error('Fetch error:', error)
+            }
+        }
+
+        fetchCardData()
+    }, [])
 
     const clickSearchHandler = () => {
         navigate('result', {

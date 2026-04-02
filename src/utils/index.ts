@@ -1,3 +1,5 @@
 import { homeStrings } from './strings'
+import { unzipPublicFile } from './readers'
+import { parseCSVToJSON } from './parser'
 
-export default { homeStrings }
+export { homeStrings, unzipPublicFile, parseCSVToJSON }

@@ -1,4 +1,4 @@
-import { AuthProvider } from './AuthProvider'
+import { DataProvider } from './DataProvider';
 import { LoadingProvider } from './LoadingProvider'
 
-export { AuthProvider, LoadingProvider };
+export { LoadingProvider, DataProvider };
