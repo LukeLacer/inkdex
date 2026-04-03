@@ -7,12 +7,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         padding: 0 20px;
-
-        .card-item {
-            align-items: flex-start;
-            img {
-                width: 200px;
-            }
-        }
+        gap: 10px;
     }
 }

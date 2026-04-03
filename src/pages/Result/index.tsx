@@ -4,11 +4,12 @@ import { useLocation } from 'react-router-dom'
 import './styles.css'
 import { find } from '../../searchEngine'
 import { DataContext, DataContextType } from '../../contexts'
-import { Card } from '../../searchEngine/types'
+import { Card as CardProps } from '../../searchEngine/types'
+import { Card } from '../../components'
 
 const Result = () => {
     const searchString: string = useLocation().state
-    const [searchResults, setSearchResults] = useState<Card[]|undefined>([])
+    const [searchResults, setSearchResults] = useState<CardProps[]|undefined>([])
     const { allCards } = useContext<DataContextType>(DataContext);
 
     useEffect(() => {
@@ -17,9 +18,7 @@ const Result = () => {
     }, [allCards, searchString])
 
     const cardsToShow = () => <>
-        { searchResults?.map((card, index) => <div className='card-item' key={index}>
-            <img src={card.Image} alt={`${card.Name} card`} />
-        </div>) }
+        { searchResults?.map((card, index) => <Card card={card} />) }
     </>
 
     return (

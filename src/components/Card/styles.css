@@ -1,0 +1,21 @@
+.card-wrapper {
+    max-height: 200px;
+    border: 2px solid;
+    width: 300px;
+
+    display: flex;
+    flex-direction: row;
+    
+    img {
+        max-height: inherit;
+    }
+
+    .right-wrapper {
+        padding: 10px 0 0 10px;
+
+        p {
+            padding-bottom: 2px;
+            border-bottom: 1px solid;
+        }
+    }
+}
