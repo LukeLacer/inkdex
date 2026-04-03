@@ -1,30 +1,70 @@
 import { Card } from './types'
 
-const getCardProperties = (searchedProperty: string, searchValue: string) => {
-    const cardSetRegexQuot = new RegExp(searchedProperty + ':"(.*?)"', 'g')
-    const cardSetRegex = new RegExp(searchedProperty + ':(\\w+)\\b', 'g')
+export const propertyCode = [
+    { property: "Abilities", code: ['b', 'abilities'], type: "string" },
+    { property: "Artist", code: ['a', 'artist'], type: "string" },
+    { property: "Body_Text", code: ['tx', 'text'], type: "string" },
+    { property: "Card_Variants", code: ['cv', 'variants'], type: "string" },
+    { property: "Classifications", code: ['c', 'classification'], type: "string" },
+    { property: "Color", code: ['co', 'color'], type: "string" },
+    { property: "Cost", code: ['cs', 'cost'], type: "number" },
+    { property: "Flavor_Text", code: ['fl', 'flavor'], type: "string" },
+    { property: "Franchise", code: ['f', 'franchise'], type: "string" },
+    { property: "Inkable", code: ['i', 'inkable'], type: "boolean" },
+    { property: "Lore", code: ['l', 'lore'], type: "number" },
+    { property: "Move_Cost", code: ['m', 'movecost'], type: "number" },
+    { property: "Name", code: ['n', 'name'], type: "string" },
+    { property: "Rarity", code: ['r', 'rarity'], type: "string" },
+    { property: "Strength", code: ['s', 'strength'], type: "number" },
+    { property: "Type", code: ['t', 'type'], type: "string" },
+    { property: "Willpower", code: ['w', 'willpower'], type: "number" },
+    { property: "prints", code: ['p', 'prints'], type: "array" },
+]
 
-    const cardProperties: any[] = []
+export const parseSearchString = (searchValue: string) => {
+    let searchValueArray: string[] = []
 
-    searchValue.match(cardSetRegex)?.forEach((property) => {
-        const correctEd = property.split(':')[1]
-        if (!cardProperties.includes(correctEd)) cardProperties.push(correctEd)
+    searchValue.trim().split(':').forEach((value, index) => {
+        if (value[0] === '"') {
+            searchValueArray.push(value.slice(1).split('"')[0].trim())
+            searchValueArray.push(value.slice(1).split('"')[1].trim())
+        } else if (value.includes(" ")) {
+            searchValueArray.push(...value.split(' '))
+        }else searchValueArray.push(value.trim())
     })
 
-    searchValue.match(cardSetRegexQuot)?.forEach((property) => {
-        const correctEd = property.split('"')[1]
-        if (!cardProperties.includes(correctEd)) cardProperties.push(correctEd)
+    searchValueArray = searchValueArray.filter(i => i.length !== 0)
+
+    if (searchValueArray.length % 2 !== 0) throw new Error('Search incorrectly written')
+
+    const searchItems: { property: string | undefined; searchValue: string }[] = []
+
+    searchValueArray.forEach((property, index) => {
+        if (index % 2 !== 0) return
+
+        searchItems.push({
+            property,
+            searchValue: searchValueArray[index+1]
+        })
     })
 
-    return cardProperties
+    return searchItems.map(({ property, searchValue }) => {
+        return {
+            property: propertyCode.find(item => item.code.includes(property!))?.property,
+            searchValue
+        }
+    })
 }
 
-const filterCardListByPropertyList = (
+//TODO: FIX THIS FUNCTION TO USE IT
+export const filterCardListByPropertyList = (
     cardList: Array<Card> | undefined,
     propertyList: Array<string>,
     property: keyof Card
 ): Array<Card> | undefined => {
+
     if (!cardList?.length) return
+
     var arrayToReturn = cardList
 
     propertyList.forEach((propertyValue) => {
@@ -56,24 +96,3 @@ const filterCardListByPropertyList = (
 
     return arrayToReturn
 }
-
-const propertyCode = {
-	Artist: ['a', 'artist'],
-	Set: ['e', 'edition', 'set'],
-	Classifications: ['c', 'classification'],
-	Color: ['co', 'color'],
-	Franchise: ['f', 'franchise'],
-	Cost: [ 'ct', 'cost'],
-	Inkable: ['i', 'inkable'],
-	Name: ['n', 'name'],
-	Type: ['t', 'type'],
-	Lore: ['l', 'lore'],
-	Rarity: ['r', 'rarity'],
-	Flavor_Text: ['fl', 'flavor'],
-	Card_Num: ['cn', 'number'],
-	Body_Text: ['tx', 'text'],
-	Willpower: ['w', 'willpower'],
-	Strength: ['s', 'strength'],
-}
-
-export { getCardProperties, filterCardListByPropertyList, propertyCode }

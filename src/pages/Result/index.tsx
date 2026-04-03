@@ -10,7 +10,7 @@ const Result = () => {
     const { allCards } = useContext<DataContextType>(DataContext);
 
     useEffect(() => {
-        setSearchResults(find(allCards, searchString))
+        setSearchResults(find(allCards!, searchString))
     }, [allCards, searchString])
 
     return (
