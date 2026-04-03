@@ -1,36 +1,22 @@
-import { Card } from './types'
+import { Card, propertyCode, search } from './types'
 
-export const propertyCode = [
-    { property: "Abilities", code: ['b', 'abilities'], type: "string" },
-    { property: "Artist", code: ['a', 'artist'], type: "string" },
-    { property: "Body_Text", code: ['tx', 'text'], type: "string" },
-    { property: "Card_Variants", code: ['cv', 'variants'], type: "string" },
-    { property: "Classifications", code: ['c', 'classification'], type: "string" },
-    { property: "Color", code: ['co', 'color'], type: "string" },
-    { property: "Cost", code: ['cs', 'cost'], type: "number" },
-    { property: "Flavor_Text", code: ['fl', 'flavor'], type: "string" },
-    { property: "Franchise", code: ['f', 'franchise'], type: "string" },
-    { property: "Inkable", code: ['i', 'inkable'], type: "boolean" },
-    { property: "Lore", code: ['l', 'lore'], type: "number" },
-    { property: "Move_Cost", code: ['m', 'movecost'], type: "number" },
-    { property: "Name", code: ['n', 'name'], type: "string" },
-    { property: "Rarity", code: ['r', 'rarity'], type: "string" },
-    { property: "Strength", code: ['s', 'strength'], type: "number" },
-    { property: "Type", code: ['t', 'type'], type: "string" },
-    { property: "Willpower", code: ['w', 'willpower'], type: "number" },
-    { property: "prints", code: ['p', 'prints'], type: "array" },
-]
-
-export const parseSearchString = (searchValue: string) => {
+export const parseSearchString = (searchValue: string): search[] => {
     let searchValueArray: string[] = []
 
-    searchValue.trim().split(':').forEach((value, index) => {
+    const trimmedSearchValue = searchValue.trim().split(':')
+
+    if (trimmedSearchValue.length === 1) return [{
+        property: 'any',
+        searchValue: trimmedSearchValue[0]
+    }]
+
+    trimmedSearchValue.forEach(value => {
         if (value[0] === '"') {
             searchValueArray.push(value.slice(1).split('"')[0].trim())
             searchValueArray.push(value.slice(1).split('"')[1].trim())
         } else if (value.includes(" ")) {
             searchValueArray.push(...value.split(' '))
-        }else searchValueArray.push(value.trim())
+        } else searchValueArray.push(value.trim())
     })
 
     searchValueArray = searchValueArray.filter(i => i.length !== 0)
@@ -45,54 +31,53 @@ export const parseSearchString = (searchValue: string) => {
         searchItems.push({
             property,
             searchValue: searchValueArray[index+1]
-        })
+        } as search)
     })
 
     return searchItems.map(({ property, searchValue }) => {
+        const correctProperty = propertyCode.find(item => item.code.includes(property!))?.property;
+
+        if (!correctProperty) throw new Error(`Property ${property} do not exists`)
+        if (!searchValue) throw new Error(`Some search value do not exists`)
+
         return {
-            property: propertyCode.find(item => item.code.includes(property!))?.property,
+            property: correctProperty,
             searchValue
         }
     })
 }
 
-//TODO: FIX THIS FUNCTION TO USE IT
 export const filterCardListByPropertyList = (
     cardList: Array<Card> | undefined,
-    propertyList: Array<string>,
-    property: keyof Card
+    searchPropertyList: Array<search>,
 ): Array<Card> | undefined => {
+    if (!cardList || !searchPropertyList) return
 
-    if (!cardList?.length) return
+    let result = cardList
 
-    var arrayToReturn = cardList
+    searchPropertyList.forEach(searchItem => {
+        result = result.filter(v => {
 
-    propertyList.forEach((propertyValue) => {
-        arrayToReturn = cardList.filter((card) => {
-            var isTrue = false
-            if (typeof card[property] === 'string') {
-                if (
-                    (card[property] as string)
-                        .toLowerCase()
-                        .includes(propertyValue.toLowerCase())
-                )
-                    isTrue = true
-            } else {
-                ;(card[property] as Array<string>).forEach(
-                    (propertyArrayValue) => {
-                        if (
-                            propertyArrayValue
-                                .toLowerCase()
-                                .includes(propertyValue.toLowerCase())
-                        )
-                            isTrue = true
-                    }
-                )
-            }
+            const searchValueLowerCase = searchItem.searchValue.toLowerCase()
 
-            return isTrue
+            if (searchItem.property === 'any')
+                return JSON.stringify(v).toLowerCase().includes(searchValueLowerCase)
+
+            const propertyCardToCheck = v[searchItem.property as keyof Card]
+
+            if (!propertyCardToCheck) return false
+
+            const propertyData = propertyCode.find(value => value.property === searchItem.property)
+
+            if (!propertyData) return false
+
+            if (propertyData.type === 'string') return propertyCardToCheck.toString().toLowerCase().includes(searchValueLowerCase)
+            if (propertyData.type === 'number') return +propertyCardToCheck === +searchValueLowerCase
+            if (propertyData.type === 'array') return (propertyCardToCheck as string[]).find((item: string) => item.toLowerCase().includes(searchValueLowerCase))
+
+            return false
         })
     })
 
-    return arrayToReturn
+    return result
 }
