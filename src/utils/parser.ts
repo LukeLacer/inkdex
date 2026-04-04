@@ -16,7 +16,7 @@ const getClass = (
     newClass: string | undefined,
     originalClass: string
 ): string => {
-    return newClass ? newClass + originalClass : originalClass
+    return newClass ? newClass + " " + originalClass : originalClass
 }
 
 export { parseCSVToJSON, getClass }
