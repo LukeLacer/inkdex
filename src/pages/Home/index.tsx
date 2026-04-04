@@ -15,7 +15,6 @@ const Home = () => {
 
     const navigate = useNavigate()
 
-
     useEffect(() => {
         const fetchCardData = async () => {
             setLoading(true, homeStrings.cardLoadingMessage)

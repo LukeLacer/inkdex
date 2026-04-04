@@ -29,7 +29,7 @@ html,
     --light-font-color: #94A3B8;
     --dark-font-color: #22262b;
     --neutral-background: #cfc5a3;
-    --page-height: calc(100% - 53px);
+    --page-height: calc(100% - 77px);
 }
 [data-theme='dark'] {
     --primary: #2E1A47;
