@@ -26,7 +26,7 @@ const CardView = () => {
                 {
                     Object.entries(card).map(([key, value]) => {
                         if (key === 'Image') return null
-                        return <p>{`${key}: ${value}`}</p>
+                        return <p key={key}>{`${key}: ${value}`}</p>
                     })
                 }
                 {card.Name}
