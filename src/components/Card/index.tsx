@@ -2,6 +2,7 @@ import React from 'react'
 
 import './styles.css'
 import { Card as SingleCardProp } from '../../searchEngine/types'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
 type CardProps = {
     card: SingleCardProp
@@ -16,7 +17,18 @@ const Card = ({ card }: CardProps) => {
         Rarity,
         Type,
     } = card
-    return <div className='card-wrapper'>
+
+    const navigate = useNavigate()
+
+    const clickCardHadler = () => {
+        if (card)
+            navigate({
+                pathname: '/card-vew',
+                search: `?${createSearchParams({ card: card.Name })}`,
+            })
+    }
+
+    return <div className='card-wrapper' onClick={() => clickCardHadler()}>
         <img src={Image} alt={`${Name} card`} />
         <div className='right-wrapper'>
             <p>{Cost}</p>

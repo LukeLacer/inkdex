@@ -81,3 +81,13 @@ export const filterCardListByPropertyList = (
 
     return result
 }
+
+export const getCardByName = (
+    allCards: Array<Card> | undefined,
+    cardName: string,
+): Card | undefined => {
+    if (!allCards || allCards?.length === 0) return
+    const card = allCards.find(card => card.Name.toLowerCase() === cardName.toLowerCase())
+    console.log(JSON.stringify(card))
+    return card
+}

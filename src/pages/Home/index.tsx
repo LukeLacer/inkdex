@@ -15,7 +15,7 @@ const Home = () => {
 
         if (searchValue)
             navigate({
-                pathname: 'result',
+                pathname: '/result',
                 search: `?${createSearchParams(params)}`,
             })
     }

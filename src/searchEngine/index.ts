@@ -1,5 +1,5 @@
 import { Card } from './types'
-import { parseSearchString, filterCardListByPropertyList } from './utils'
+import { parseSearchString, filterCardListByPropertyList, getCardByName } from './utils'
 
 const find = (
     allCards: Array<Card>,
@@ -11,4 +11,8 @@ const find = (
     )
 }
 
-export { find }
+const findCardByName = (allCards: Array<Card>, cardName: string): Card | undefined => {
+    return getCardByName(allCards, cardName)
+}
+
+export { find, findCardByName }
