@@ -1,0 +1,9 @@
+.homepage-searchbar {
+    max-width: 500px;
+}
+
+@media (min-width: 540px) {
+    .homepage-searchbar {
+        font-size: 30px;
+    }
+}

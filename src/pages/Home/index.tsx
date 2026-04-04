@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Input, Button } from '../../components'
+import { SearchBar, Button } from '../../components'
 import { homeStrings } from '../../utils/strings'
 import { parseCSVToJSON, unzipPublicFile } from '../../utils'
 import { DataContext, DataContextType, LoadingContext, LoadingContextType } from '../../contexts'
@@ -48,11 +48,12 @@ const Home = () => {
     return (
         <div className='home-wrapper'>
             <div className='search-wrapper'>
-                <h1>{homeStrings.title}</h1>
-                <p>{homeStrings.subtitle}</p>
-                <Input
-                    type='text'
-                    autoFocus
+                <div className='page-header-wrapper'>
+                    <h1>{homeStrings.title}</h1>
+                    <p>{homeStrings.subtitle}</p>
+                </div>
+                <SearchBar
+                    className='homepage-searchbar'
                     onChange={(e) => setSearchValue(e.target.value)}
                     onKeyDown={(e) => handleKeyDown(e)}
                 />
