@@ -8,3 +8,7 @@ export const homeStrings = {
 export const headerStrings = {
     homeButton: 'Início'
 }
+
+export const burgerMenuStrings = {
+    changeTheme: 'Tema'
+}

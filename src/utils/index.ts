@@ -1,5 +1,5 @@
-import { homeStrings, headerStrings } from './strings'
+import { homeStrings, headerStrings, burgerMenuStrings } from './strings'
 import { unzipPublicFile } from './readers'
-import { parseCSVToJSON } from './parser'
+import { parseCSVToJSON, getClass } from './parser'
 
-export { homeStrings, headerStrings, unzipPublicFile, parseCSVToJSON }
+export { homeStrings, headerStrings, unzipPublicFile, parseCSVToJSON, burgerMenuStrings, getClass }

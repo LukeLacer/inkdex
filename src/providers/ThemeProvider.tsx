@@ -7,8 +7,12 @@ interface ThemeProviderProps {
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<string>(defaultThemeContext.theme);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
   
-  const value: ThemeContextType = { theme, setTheme };
+  const value: ThemeContextType = { theme, toggleTheme };
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);

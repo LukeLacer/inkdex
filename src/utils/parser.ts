@@ -1,15 +1,22 @@
 import Papa from 'papaparse'
 
-const parseCSVToJSON = (csvString: string|undefined) => {
-  let jsonToReturn = {}
+const parseCSVToJSON = (csvString: string | undefined) => {
+    let jsonToReturn = {}
     Papa.parse(csvString!, {
-      header: true,
-      skipEmptyLines: true,
-      complete: (results) => {
-        jsonToReturn = results.data
-      }
-    });
-  return jsonToReturn
-};
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+            jsonToReturn = results.data
+        },
+    })
+    return jsonToReturn
+}
 
-export { parseCSVToJSON }
+const getClass = (
+    newClass: string | undefined,
+    originalClass: string
+): string => {
+    return newClass ? newClass + originalClass : originalClass
+}
+
+export { parseCSVToJSON, getClass }

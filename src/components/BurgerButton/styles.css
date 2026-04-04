@@ -1,0 +1,41 @@
+.burger-wrapper {
+    position: relative;
+
+    .burger-button {
+        background-color: var(--primary);
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .burger-button:hover {
+        cursor: pointer;
+    }
+
+    .burger-menu {
+        position: absolute;
+        right: 0;
+        margin-top: 5px;
+        background-color: var(--neutral-background);
+        padding: 12px;
+        border-radius: 6px;
+        width: 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .burger-menu-item {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-font-color);
+        }
+
+        .burger-menu-item:hover {
+            cursor: pointer;
+        }
+    }
+}

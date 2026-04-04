@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './styles.css'
-import Button from '../Button'
+import { BurgerMenu, Button } from '../index'
 import { headerStrings } from '../../utils'
 
 const Header = () => {
@@ -13,6 +13,7 @@ const Header = () => {
     }
     return <div className='header-wrapper'>
         <Button onClick={() => goHomeHandler()}>{headerStrings.homeButton}</Button>
+        <BurgerMenu />
     </div>
 }
 
