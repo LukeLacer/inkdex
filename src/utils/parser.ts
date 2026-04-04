@@ -12,11 +12,4 @@ const parseCSVToJSON = (csvString: string | undefined) => {
     return jsonToReturn
 }
 
-const getClass = (
-    newClass: string | undefined,
-    originalClass: string
-): string => {
-    return newClass ? newClass + " " + originalClass : originalClass
-}
-
-export { parseCSVToJSON, getClass }
+export { parseCSVToJSON }
