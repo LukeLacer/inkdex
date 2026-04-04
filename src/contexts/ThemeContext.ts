@@ -6,7 +6,7 @@ export interface ThemeContextType {
 }
 
 export const defaultThemeContext: ThemeContextType = {
-  theme: 'light',
+  theme: 'dark',
   setTheme: () => {},
 };
 

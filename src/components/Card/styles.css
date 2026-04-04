@@ -8,6 +8,8 @@
     
     img {
         max-height: inherit;
+        min-width: 143px;
+        min-height: 200px;
     }
 
     .right-wrapper {

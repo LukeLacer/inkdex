@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, HashRouter, Routes as Routing } from 'react-router-dom'
 
+import { Header } from './components'
 import { Home, Result, Loading } from './pages'
 
 const Routes = () => {
@@ -8,6 +9,7 @@ const Routes = () => {
         <>
             <Loading />
             <HashRouter>
+                <Header />
                 <Routing>
                     <Route Component={Home} path="/" />
                     <Route Component={Result} path="/result" />

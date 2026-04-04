@@ -34,9 +34,10 @@ const Home = () => {
     }, [])
 
     const clickSearchHandler = () => {
-        navigate('result', {
-            state: searchValue,
-        })
+        if (searchValue)
+            navigate('result', {
+                state: searchValue,
+            })
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

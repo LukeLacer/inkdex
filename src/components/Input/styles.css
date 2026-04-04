@@ -1,4 +1,8 @@
 .input-main {
     width: -webkit-fill-available;
-    padding: 5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--neutral-background);
+    color: var(--dark-font-color);
 }

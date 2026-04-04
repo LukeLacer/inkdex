@@ -3,6 +3,11 @@
     padding: 0;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    color: var(--light-font-color);
+}
+
+#root {
+    background-color: var(--neutral);
 }
 
 h1 {
@@ -21,17 +26,27 @@ html,
     --secondary: #D4AF37;
     --tertiary: #7D52B5;
     --neutral: #1A161E;
+    --light-font-color: #94A3B8;
+    --dark-font-color: #22262b;
+    --neutral-background: #cfc5a3;
+    --page-height: calc(100% - 53px);
 }
 [data-theme='dark'] {
     --primary: #2E1A47;
     --secondary: #D4AF37;
     --tertiary: #7D52B5;
     --neutral: #1A161E;
+    --neutral-background: #cfc5a3;
+    --light-font-color: #94A3B8;
+    --dark-font-color: #22262b;
 }
 [data-theme='light'] {
     --primary: #B8860B;
     --secondary: #5D4037;
     --tertiary: #2E5077;
     --neutral: #F5F0E5;
+    --neutral-background: #ad9891;
+    --light-font-color: #77574D;
+    --dark-font-color: #2c201d;
 }
 

@@ -1,3 +1,19 @@
 .button-main {
     padding: 5px 10px;
+    background-color: var(--primary);
+    color: var(--tertiary);
+    border-radius: 6px;
+    padding: 12px 24px;
+    border: none;
+}
+
+.button-main:hover {
+    background-color: var(--secondary);
+    color: var(--neutral);
+    cursor: pointer;
+}
+
+.button-main:active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
 }
