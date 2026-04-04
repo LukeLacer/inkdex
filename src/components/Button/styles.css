@@ -7,10 +7,12 @@
     border: none;
 }
 
-.button-main:hover {
-    background-color: var(--secondary);
-    color: var(--neutral);
-    cursor: pointer;
+@media (hover: hover) {
+    .button-main:hover {
+        background-color: var(--secondary);
+        color: var(--neutral);
+        cursor: pointer;
+    }
 }
 
 .button-main:active {
