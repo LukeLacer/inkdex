@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { SearchBar, Button } from '../../components'
-import { homeStrings } from '../../utils/strings'
-import { parseCSVToJSON, unzipPublicFile } from '../../utils'
+import { parseCSVToJSON, unzipPublicFile, homeStrings } from '../../utils'
 import { DataContext, DataContextType, LoadingContext, LoadingContextType } from '../../contexts'
 import './styles.css'
 import { Card } from '../..//searchEngine/types'
@@ -11,7 +10,7 @@ import { Card } from '../..//searchEngine/types'
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
     const { setLoading } = useContext<LoadingContextType>(LoadingContext);
-    const { setAllCards } = useContext<DataContextType>(DataContext);
+    const { allCards, setAllCards } = useContext<DataContextType>(DataContext);
 
     const navigate = useNavigate()
 
@@ -28,7 +27,8 @@ const Home = () => {
             }
         }
 
-        fetchCardData()
+        if (allCards?.length === 0)
+            fetchCardData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

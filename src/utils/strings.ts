@@ -4,3 +4,7 @@ export const homeStrings = {
     searchButtonLabel: 'Buscar',
     cardLoadingMessage: 'Processando dados dos cards...'
 }
+
+export const headerStrings = {
+    homeButton: 'Início'
+}
