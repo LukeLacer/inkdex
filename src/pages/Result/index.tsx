@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 import './styles.css'
 import { find } from '../../searchEngine'
@@ -18,7 +18,7 @@ const Result = () => {
         if (!allCards || !valueToSearch) return
         setSearchParams({ query: valueToSearch})
         setSearchResults(find(allCards, valueToSearch))
-    }, [allCards, valueToSearch])
+    }, [allCards, valueToSearch, setSearchParams])
 
     useEffect(() => {
         const query = searchParams.get("query")
@@ -46,10 +46,10 @@ const Result = () => {
             <Input
                 type='text'
                 autoFocus
+                value={inputSearchValue}
                 onChange={(e) => setInputSearchValue(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
             />
-            <h1>results for: {valueToSearch}</h1>
             <div className='cards-wrapper'>
                 {cardsToShow()}
             </div>
