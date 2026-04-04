@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 
 import './styles.css'
 import { find } from '../../searchEngine'
@@ -8,7 +8,7 @@ import { Card as CardProps } from '../../searchEngine/types'
 import { Card, Input } from '../../components'
 
 const Result = () => {
-    const searchString: string = useLocation().state
+    const [searchParams, setSearchParams] = useSearchParams();
     const [searchResults, setSearchResults] = useState<CardProps[]|undefined>([])
     const [inputSearchValue, setInputSearchValue] = useState<string>('');
     const [valueToSearch, setValueToSearch] = useState<string>('');
@@ -16,13 +16,16 @@ const Result = () => {
 
     useEffect(() => {
         if (!allCards || !valueToSearch) return
+        setSearchParams({ query: valueToSearch})
         setSearchResults(find(allCards, valueToSearch))
     }, [allCards, valueToSearch])
 
     useEffect(() => {
-      setInputSearchValue(searchString)
-      setValueToSearch(searchString)
-    }, [searchString])
+        const query = searchParams.get("query")
+        if (!query) return
+        setInputSearchValue(query)
+        setValueToSearch(query)
+    }, [searchParams])
 
     const clickSearchHandler = () => {
         setValueToSearch(inputSearchValue)
@@ -46,7 +49,7 @@ const Result = () => {
                 onChange={(e) => setInputSearchValue(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
             />
-            <h1>results for: {searchString}</h1>
+            <h1>results for: {valueToSearch}</h1>
             <div className='cards-wrapper'>
                 {cardsToShow()}
             </div>

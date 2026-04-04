@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
 import { SearchBar, Button } from '../../components'
 import { parseCSVToJSON, unzipPublicFile, homeStrings } from '../../utils'
@@ -33,9 +33,12 @@ const Home = () => {
     }, [])
 
     const clickSearchHandler = () => {
+        const params = { query: searchValue };
+
         if (searchValue)
-            navigate('result', {
-                state: searchValue,
+            navigate({
+                pathname: 'result',
+                search: `?${createSearchParams(params)}`,
             })
     }
 
