@@ -4,4 +4,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .page-links-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+    }
 }
