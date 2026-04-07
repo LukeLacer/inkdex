@@ -14,3 +14,11 @@ export const saveDeck = (deck: Deck) => {
 		localStorage.setItem('decks', JSON.stringify([...parsedSavedDecks, deck]))
 	}
 }
+
+export const getDecks = (): Deck[] => {
+	const savedDecks = localStorage.getItem('decks')
+
+	if(savedDecks)
+		return JSON.parse(savedDecks) as Deck[]
+	else return []
+}

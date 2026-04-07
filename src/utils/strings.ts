@@ -7,7 +7,8 @@ export const homeStrings = {
 
 export const headerStrings = {
     homeButton: 'Início',
-    deckbuilderButton: 'Deck'
+    deckbuilderButton: 'Deck',
+    myDecksButton: 'Meus Decks'
 }
 
 export const burgerMenuStrings = {

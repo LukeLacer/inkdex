@@ -16,10 +16,15 @@ const Header = () => {
         navigate('deckbuilder')
     }
 
+    const myDecksHandler = () => {
+        navigate('mydecks')
+    }
+
     return <div className='header-wrapper'>
         <div className='page-links-wrapper'>
             <Button onClick={() => goHomeHandler()}>{headerStrings.homeButton}</Button>
             <Button onClick={() => deckbuilderHandler()}>{headerStrings.deckbuilderButton}</Button>
+            <Button onClick={() => myDecksHandler()}>{headerStrings.myDecksButton}</Button>
         </div>
         <BurgerMenu />
     </div>
