@@ -1,6 +1,7 @@
 import { homeStrings, headerStrings, burgerMenuStrings } from './strings'
 import { unzipPublicFile } from './readers'
 import { parseCSVToJSON } from './parser'
+import { saveDeck } from './storage'
 
 const getClass = (
     newClass: string | undefined,
@@ -9,4 +10,4 @@ const getClass = (
     return newClass ? newClass + " " + originalClass : originalClass
 }
 
-export { homeStrings, headerStrings, unzipPublicFile, parseCSVToJSON, burgerMenuStrings, getClass }
+export { homeStrings, headerStrings, unzipPublicFile, parseCSVToJSON, burgerMenuStrings, getClass, saveDeck }

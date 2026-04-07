@@ -56,3 +56,11 @@ export type search = {
     property: string,
     searchValue: string
 }
+
+export type Deck = {
+    version: string
+    title: string
+    description: string
+    decklist: string
+    maybeboard: string
+}
