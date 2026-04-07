@@ -5,8 +5,10 @@ export const saveDeck = (deck: Deck, edit: boolean) => {
 
 	const timestamp = new Date().toISOString()
 
-	if (!savedDecks)
+	if (!savedDecks) {
+		deck.created = timestamp
 		localStorage.setItem('decks', JSON.stringify([deck]))
+	}
 	else {
 		const parsedSavedDecks = JSON.parse(savedDecks) as Deck[]
 
@@ -14,6 +16,14 @@ export const saveDeck = (deck: Deck, edit: boolean) => {
 
 		if (previousVersion) {
 			if (!edit) throw new Error('This deck already exists!')
+
+			if (
+				deck.decklist === previousVersion.decklist
+				&& deck.description === previousVersion.description
+				&& deck.maybeboard === previousVersion.maybeboard
+				&& deck.title === previousVersion.title
+				&& deck.version === previousVersion.version
+			) throw new Error('No changes were made to the deck!')
 
 			deck.lastModified = timestamp
 
@@ -26,11 +36,11 @@ export const saveDeck = (deck: Deck, edit: boolean) => {
 					deck
 				])
 			)
-			return
+		} else {
+			deck.created = timestamp
+			localStorage.setItem('decks', JSON.stringify([...parsedSavedDecks, deck]))
 		}
-		deck.created = timestamp
 
-		localStorage.setItem('decks', JSON.stringify([...parsedSavedDecks, deck]))
 	}
 }
 
@@ -57,9 +67,9 @@ export const addChangeHistoryToDeck = (newDeck: Deck, previousVersion: Deck, tim
 
 	if (newDeck.version !== previousVersion.version)
 		newDeck.changeHistory?.push('Versão alterada')
-	if (newDeck.title === previousVersion.title)
+	if (newDeck.title !== previousVersion.title)
 		newDeck.changeHistory?.push('Titulo alterado')
-	if (newDeck.description === previousVersion.description)
+	if (newDeck.description !== previousVersion.description)
 		newDeck.changeHistory?.push('Descrição alterada')
 	if (newDeck.decklist !== previousVersion.decklist)
 		newDeck.changeHistory?.push(checkCardlistDifferences(newDeck.decklist, previousVersion.decklist))

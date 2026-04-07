@@ -4,7 +4,7 @@ import './styles.css'
 import { Button, Input } from '../../components';
 import { DataContext, DataContextType } from '../../contexts';
 import { saveDeck, getDeckByTitleVersion } from '../../utils';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { deckCheck } from '../../searchEngine';
 import { deckBuilderStrings } from '../../utils/strings';
 
@@ -18,6 +18,8 @@ const Deckbuilder = () => {
     const [description, setDescription] = useState<string>('')
     const [pageTitle, setPageTitle] = useState(deckBuilderStrings.defaultPageTitle)
     const [edit, setEdit] = useState<boolean>(false)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const title = searchParams.get("title")
@@ -60,12 +62,16 @@ const Deckbuilder = () => {
         if (deckDefinitions.deckHasError) return
 
         saveDeck({
-            title: title.trim(),
-            version: version.trim(),
-            description: description.trim(),
-            decklist: decklist.trim(),
-            maybeboard: maybeboard.trim()
+            title: title?.trim(),
+            version: version?.trim(),
+            description: description?.trim(),
+            decklist: decklist?.trim(),
+            maybeboard: maybeboard?.trim()
         }, edit)
+
+        alert('Deck salvo com sucesso!')
+
+        navigate('/mydecks')
     }
 
     return (
