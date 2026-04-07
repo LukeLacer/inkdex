@@ -20,6 +20,11 @@ export type Card = {
     prints: string[]
 }
 
+export type DeckCard = {
+    quantity: number;
+    card: Card;
+}
+
 export type Set = {
     Set_ID: string
     Set_Name: string

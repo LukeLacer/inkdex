@@ -19,17 +19,22 @@
             color: var(--dark-font-color);
             padding: 6px;
         }
+
+        button {
+            width: fit-content;
+        }
     }
 
     .deck-viewer-wrapper {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 12px;
     }
 }
 
 @media (min-width: 768px) {
     .deckbuilder-wrapper {
-        height: var(--page-height);
+        min-height: var(--page-height);
     }
 }
