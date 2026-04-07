@@ -3,6 +3,24 @@
     background-color: var(--neutral);
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 24px;
+
+    .deck-data-wrapper {
+        padding: 6px 12px;
+        width: fit-content;
+        border: 1px solid white;
+        cursor: pointer;
+
+        .title-label {
+            margin-bottom: 6px;
+            font-size: 24px;
+        }
+
+        .version-label {
+            text-align: center;
+            font-size: 12px;
+        }
+    }
 }

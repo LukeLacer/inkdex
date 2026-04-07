@@ -17,7 +17,7 @@ export type Card = {
     Strength?: number
     Type: string
     Willpower?: number
-    prints: string[]
+    prints: string
 }
 
 export type DeckCard = {
@@ -52,6 +52,8 @@ export const propertyCode = [
     { property: "prints", code: ['p', 'prints'], type: "array" },
 ]
 
+export const setsInCore = 5
+
 export type search = {
     property: string,
     searchValue: string
@@ -63,4 +65,11 @@ export type Deck = {
     description: string
     decklist: string
     maybeboard: string
+}
+
+export type DeckCheckType = {
+    deckHasError: boolean,
+    deckFormat: string,
+    colors: string[],
+    cardQuantity: number,
 }

@@ -1,5 +1,6 @@
-import { Card, DeckCard } from './types'
+import { Card, DeckCard, DeckCheckType, setsInCore } from './types'
 import { parseSearchString, filterCardListByPropertyList, getCardByName } from './utils'
+import sets from '../data/sets.json'
 
 const find = (
     allCards: Array<Card>,
@@ -16,9 +17,9 @@ const findCardByName = (allCards: Array<Card>, cardName: string): Card | undefin
 }
 
 const findCards = (allCards: Array<Card>, cardList: string): DeckCard[] => {
-    let deckLIstSplit = cardList.split('\n').filter(x => x)
+    let deckListSplit = cardList.split('\n').filter(x => x)
 
-    return deckLIstSplit.map(cardString => {
+    return deckListSplit.map(cardString => {
         const index = cardString.indexOf(' ');
 
         if (index !== -1) {
@@ -33,4 +34,43 @@ const findCards = (allCards: Array<Card>, cardList: string): DeckCard[] => {
     })
 }
 
-export { find, findCardByName, findCards }
+const deckCheck = (allCards: Card[], decklist: string): DeckCheckType => {
+    const parsedDecklist = findCards(allCards, decklist)
+    let cardQuantity = 0
+    let colors: any[] = []
+    let deckHasError: boolean = false
+    let deckFormat: string = "core"
+
+    parsedDecklist.forEach(card => {
+        cardQuantity += card.quantity
+        colors = [...colors, ...card.card.Color.split(', ')]
+        let cardFormat = "infinity"
+
+        const cardPrints = JSON.parse(card.card.prints)
+
+        cardPrints.forEach((print: string) => {
+
+            if (sets.find(set => print.split('-')[0] === set.Set_ID && set.Set_Num >= setsInCore))
+                cardFormat = "core"
+        })
+
+        if (cardFormat === "infinity")
+            deckFormat = "infinity"
+    }) 
+
+    const uniqueColors = colors.filter((item, index) => colors.indexOf(item) === index)
+
+    if (
+        cardQuantity < 60
+        || uniqueColors.length > 2
+    ) deckHasError = true
+
+    return {
+        deckHasError,
+        deckFormat,
+        colors: uniqueColors,
+        cardQuantity
+    }
+}
+
+export { find, findCardByName, findCards, deckCheck }

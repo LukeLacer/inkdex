@@ -73,7 +73,7 @@ export const filterCardListByPropertyList = (
 
             if (propertyData.type === 'string') return propertyCardToCheck.toString().toLowerCase().includes(searchValueLowerCase)
             if (propertyData.type === 'number') return +propertyCardToCheck === +searchValueLowerCase
-            if (propertyData.type === 'array') return (propertyCardToCheck as string[]).find((item: string) => item.toLowerCase().includes(searchValueLowerCase))
+            if (propertyData.type === 'array') return propertyCardToCheck.toString().toLowerCase().includes(searchValueLowerCase)
 
             return false
         })

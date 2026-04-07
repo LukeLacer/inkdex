@@ -55,6 +55,7 @@
         min-height: var(--page-height);         
         textarea, input {
             width: 70vw;
+            max-width: 700px;
         }
     }
 }
