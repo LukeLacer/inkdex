@@ -13,7 +13,6 @@
         
         textarea {
             resize: none;
-            width: 50%;
             height: 400px;
             background-color: var(--neutral-background);
             color: var(--dark-font-color);
@@ -36,5 +35,11 @@
 @media (min-width: 768px) {
     .deckbuilder-wrapper {
         min-height: var(--page-height);
+        
+        .deck-input-wrapper {            
+            textarea {
+                width: 50%;
+            }
+        }
     }
 }
