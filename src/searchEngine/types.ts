@@ -65,6 +65,9 @@ export type Deck = {
     description: string
     decklist: string
     maybeboard: string
+    created?: string
+    lastModified?: string
+    changeHistory?: string[]
 }
 
 export type DeckCheckType = {
