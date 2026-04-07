@@ -14,3 +14,15 @@ export const headerStrings = {
 export const burgerMenuStrings = {
     changeTheme: 'Tema'
 }
+
+export const deckBuilderStrings = {
+    initialVersion: '1.0.0',
+    defaultPageTitle: 'Criar novo deck',
+    editPageTitle: 'Editar Deck',
+    version: 'Versão',
+    name: 'Nome',
+    description: 'Descrição',
+    decklist: 'Lista do deck (decklist)',
+    maybeboard: 'Lista de possibilidades (maybeboard)',
+    saveDeckButton: 'Salvar Deck'
+}

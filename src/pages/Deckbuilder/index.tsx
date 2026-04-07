@@ -6,6 +6,7 @@ import { DataContext, DataContextType } from '../../contexts';
 import { saveDeck, getDeckByTitleVersion } from '../../utils';
 import { useSearchParams } from 'react-router-dom';
 import { deckCheck } from '../../searchEngine';
+import { deckBuilderStrings } from '../../utils/strings';
 
 const Deckbuilder = () => {
     const [searchParams] = useSearchParams();
@@ -13,9 +14,9 @@ const Deckbuilder = () => {
     const [decklist, setDecklist] = useState('');
     const [maybeboard, setMaybeboard] = useState('');
     const [title, setTitle] = useState<string>('')
-    const [version, setVersion] = useState<string>('1.0.0')
+    const [version, setVersion] = useState<string>(deckBuilderStrings.initialVersion)
     const [description, setDescription] = useState<string>('')
-    const [pageTitle, setPageTitle] = useState('Criar novo deck')
+    const [pageTitle, setPageTitle] = useState(deckBuilderStrings.defaultPageTitle)
     const [edit, setEdit] = useState<boolean>(false)
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const Deckbuilder = () => {
         setDescription(deck.description)
         setDecklist(deck.decklist)
         setMaybeboard(deck.maybeboard)
-        setPageTitle('Editar Deck')
+        setPageTitle(deckBuilderStrings.editPageTitle)
         setEdit(true)
     }, [searchParams])
 
@@ -42,8 +43,6 @@ const Deckbuilder = () => {
         if (!decklist) return
 
         const deckDefinitions = deckCheck(allCards, decklist)
-
-        console.log(JSON.stringify(deckDefinitions))
 
         if (deckDefinitions.deckHasError) return
 
@@ -60,7 +59,7 @@ const Deckbuilder = () => {
         <div className='deckbuilder-wrapper'>
             <h1>{pageTitle}</h1>
             <div className='input-version-wrapper'>
-                <p>Versão</p>
+                <p>{deckBuilderStrings.version}</p>
                 <Input
                     type='text'
                     value={version}
@@ -69,7 +68,7 @@ const Deckbuilder = () => {
                 />
             </div>
             <div className='input-label-value-wrapper'>
-                <p>Nome</p>
+                <p>{deckBuilderStrings.name}</p>
                 <Input
                     type='text'
                     autoFocus
@@ -79,7 +78,7 @@ const Deckbuilder = () => {
                 />
             </div>
             <div className='input-label-value-wrapper'>
-                <p>Descrição</p>
+                <p>{deckBuilderStrings.description}</p>
                 <textarea
                     className='description-text-area'
                     value={description}
@@ -88,7 +87,7 @@ const Deckbuilder = () => {
                 />
             </div>
             <div className='input-label-value-wrapper'>
-                <p>Lista do deck (decklist)</p>
+                <p>{deckBuilderStrings.decklist}</p>
                 <textarea
                     value={decklist}
                     id='decklist'
@@ -96,14 +95,14 @@ const Deckbuilder = () => {
                 />
             </div>
             <div className='input-label-value-wrapper'>
-                <p>Lista de possibilidades (maybeboard)</p>
+                <p>{deckBuilderStrings.maybeboard}</p>
                 <textarea
                     value={maybeboard}
                     id='maybeboard'
                     onChange={(e) => setMaybeboard(e.target.value)}
                 />
             </div>
-            <Button onClick={confirmDecklist}>Salvar deck</Button>
+            <Button onClick={confirmDecklist}>{deckBuilderStrings.saveDeckButton}</Button>
         </div>
     )
 }
