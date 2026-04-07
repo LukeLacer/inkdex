@@ -1,6 +1,10 @@
 import { Deck } from "../searchEngine/types";
 
 export const saveDeck = (deck: Deck, edit: boolean) => {
+
+	if (deck.title.trim() === '' || deck.version.trim() === '' || deck.decklist.trim() === '')
+		throw new Error('Deck without title, version or cards')
+		
 	const savedDecks = localStorage.getItem('decks')
 
 	const timestamp = new Date().toISOString()

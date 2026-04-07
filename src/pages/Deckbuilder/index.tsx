@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import './styles.css'
 import { Button, Input } from '../../components';
 import { DataContext, DataContextType } from '../../contexts';
 import { saveDeck, getDeckByTitleVersion } from '../../utils';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import { deckCheck } from '../../searchEngine';
 import { deckBuilderStrings } from '../../utils/strings';
 
@@ -56,22 +57,26 @@ const Deckbuilder = () => {
     const confirmDecklist = () => {
         if (!allCards || allCards.length === 0) return
         if (!decklist) return
+        try {
+            const deckDefinitions = deckCheck(allCards, decklist)
 
-        const deckDefinitions = deckCheck(allCards, decklist)
+            if (deckDefinitions.deckHasError) return
 
-        if (deckDefinitions.deckHasError) return
+            saveDeck({
+                title: title?.trim(),
+                version: version?.trim(),
+                description: description?.trim(),
+                decklist: decklist?.trim(),
+                maybeboard: maybeboard?.trim()
+            }, edit)
 
-        saveDeck({
-            title: title?.trim(),
-            version: version?.trim(),
-            description: description?.trim(),
-            decklist: decklist?.trim(),
-            maybeboard: maybeboard?.trim()
-        }, edit)
+            alert('Deck salvo com sucesso!')
 
-        alert('Deck salvo com sucesso!')
-
-        navigate('/mydecks')
+            navigate('/mydecks')
+        } catch (error) {
+            toast.error("Rolou algum erro", { theme: 'colored'});
+            console.log(error)
+        }
     }
 
     return (
@@ -122,6 +127,7 @@ const Deckbuilder = () => {
                 />
             </div>
             <Button onClick={confirmDecklist}>{deckBuilderStrings.saveDeckButton}</Button>
+            <ToastContainer />
         </div>
     )
 }
