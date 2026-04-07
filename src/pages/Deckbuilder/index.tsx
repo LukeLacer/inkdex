@@ -23,7 +23,10 @@ const Deckbuilder = () => {
         const title = searchParams.get("title")
         const version = searchParams.get("version")
 
-        if (!title || !version) return
+        if (!title || !version) {
+            resetData()
+            return
+        }
         
         const deck = getDeckByTitleVersion(title, version)
 
@@ -37,6 +40,16 @@ const Deckbuilder = () => {
         setPageTitle(deckBuilderStrings.editPageTitle)
         setEdit(true)
     }, [searchParams])
+
+    const resetData = () => {
+        setVersion(deckBuilderStrings.initialVersion)
+        setTitle('')
+        setDescription('')
+        setDecklist('')
+        setMaybeboard('')
+        setPageTitle(deckBuilderStrings.defaultPageTitle)
+        setEdit(false)
+    }
 
     const confirmDecklist = () => {
         if (!allCards || allCards.length === 0) return
