@@ -70,15 +70,15 @@ export const addChangeHistoryToDeck = (newDeck: Deck, previousVersion: Deck, tim
 	newDeck.changeHistory.push(timestamp)
 
 	if (newDeck.version !== previousVersion.version)
-		newDeck.changeHistory?.push('Versão alterada')
+		newDeck.changeHistory?.push('Version changed')
 	if (newDeck.title !== previousVersion.title)
-		newDeck.changeHistory?.push('Titulo alterado')
+		newDeck.changeHistory?.push('Title changed')
 	if (newDeck.description !== previousVersion.description)
-		newDeck.changeHistory?.push('Descrição alterada')
+		newDeck.changeHistory?.push('description changed')
 	if (newDeck.decklist !== previousVersion.decklist)
-		newDeck.changeHistory?.push(checkCardlistDifferences(newDeck.decklist, previousVersion.decklist))
+		newDeck.changeHistory?.push("decklist\n" + checkCardlistDifferences(newDeck.decklist, previousVersion.decklist))
 	if (newDeck.maybeboard !== previousVersion.maybeboard)
-		newDeck.changeHistory?.push(checkCardlistDifferences(newDeck.maybeboard, previousVersion.maybeboard))
+		newDeck.changeHistory?.push("maybeboard\n" + checkCardlistDifferences(newDeck.maybeboard, previousVersion.maybeboard))
 
 	newDeck.changeHistory.push('-------------------')
 
