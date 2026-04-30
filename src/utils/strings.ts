@@ -6,9 +6,9 @@ export const homeStrings = {
 }
 
 export const headerStrings = {
-    homeButton: 'Início',
-    deckbuilderButton: 'Deck',
-    myDecksButton: 'Meus Decks'
+    homeButton: 'INÍCIO',
+    deckbuilderButton: 'CRIAR DECK',
+    myDecksButton: 'DECKS'
 }
 
 export const burgerMenuStrings = {
@@ -25,4 +25,16 @@ export const deckBuilderStrings = {
     decklist: 'Lista do deck (decklist)',
     maybeboard: 'Lista de possibilidades (maybeboard)',
     saveDeckButton: 'Salvar Deck'
+}
+
+export const deckViewerStrings = {
+    version: 'Versão: ',
+    description: 'Descrição',
+    decklist: 'Lista do deck (decklist)',
+    maybeboard: 'Lista de possibilidades (maybeboard)',
+    editPageButton: 'Editar Deck',
+}
+
+export const myDecksStrings = {
+    noDecks: 'Você ainda não tem decks'
 }

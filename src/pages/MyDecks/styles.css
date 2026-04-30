@@ -24,3 +24,7 @@
         }
     }
 }
+
+.my-decks-wrapper:has(>.no-decks-placeholder) {
+    justify-content: center;
+}

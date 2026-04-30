@@ -5,9 +5,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import './styles.css'
 import { Button, Input } from '../../components';
 import { DataContext, DataContextType } from '../../contexts';
-import { saveDeck, getDeckByTitleVersion } from '../../utils';
+import { saveDeck, getDeckByTitleVersion, deckBuilderStrings } from '../../utils';
 import { deckCheck } from '../../searchEngine';
-import { deckBuilderStrings } from '../../utils/strings';
 
 const Deckbuilder = () => {
     const [searchParams] = useSearchParams();

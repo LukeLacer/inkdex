@@ -5,5 +5,6 @@ import Loading from './Loading'
 import CardView from './CardView'
 import Deckbuilder from './Deckbuilder'
 import MyDecks from './MyDecks'
+import Deckviewer from './Deckviewer'
 
-export { Home, Result, Loading, DragAndDropExample, CardView, Deckbuilder, MyDecks }
+export { Home, Result, Loading, DragAndDropExample, CardView, Deckbuilder, MyDecks, Deckviewer }
