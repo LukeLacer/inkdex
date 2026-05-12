@@ -1,0 +1,152 @@
+    Como um illumineer no reino de Lorcana você usará sua tinta mágica para invocar novas versões de personagens, itens e locais da Disney, chamadas de glimmers. Esses glimmers, alguns familiares, outros fantásticos, ajudarão você em sua jornada por Lorcana para encontrar e coletar peças perdidas da história. Infinitas missões aguardam!
+
+## Antes de começar
+Lorcana é um jogo da Ravensburger, empresa alemã, que em conjunto com a Disney criou todo esse universo. O jogo em si é todo em inglês, alguns materiais estão disponíveis no site oficial, mas somente em inglês!
+* Site oficial do jogo: [disneylorcana.com](https://disneylorcana.com)
+* Manual rápido de como jogar (em inglês): [manual simples](https://files.disneylorcana.com/Shimmering-Skies_Quick_Start_Book_EN.pdf)
+* Observações: Como não temos traduções oficiais ainda, por isso é impossível determinar quais são os termos corretos em português. Nesse documento eu vou utilizar os termos que a maioria dos jogadores usa no dia-a-dia. Mas muitas pessoas podem usar termos diferentes. O importante é a compreensão, portanto caso não entenda basta perguntar.
+## O jogo
+Lorcana é um jogo de cartas colecionáveis. Na mesa as cartas representam glimmers, muitas vezes traduzidos como vislumbres, que irão te ajudar a ganhar o jogo.
+## Como vencer
+Para vencer o jogo a forma mais comum é ganhando 20 de lore (peças perdidas da história que você coleta) e os personagens são os principais responsáveis por gerar lore, indo em missões (quests) e coletando-as.
+## O baralho (deck)
+O deck de Lorcana é um item pessoal, composto por diversos tipos de carta, que você usa para disputar com outro illumineer. Existem regras para montar esse deck, e são:
+* Deve conter no mínimo 60 cartas
+* Não pode conter mais de 4 cópias de cada carta (distinguidas pelos seus nomes e no caso de personagens pela versão dela, um tipo de "subtítulo")
+* É altamente recomendável que o deck contenha sempre o minimo de cartas possiveis (60), pois conforme a quantidade de cartas no baralho aumenta a chance de não comprar a carta que você quer aumenta proporcionalmente.
+* É também recomendado que tenham várias cópias da mesma carta, assim a consistência do deck aumenta, fazendo com que suas forças também se sobressaiam.
+## As cartas
+Em Lorcana, até o momento temos 4 tipos de cartas, personagens, itens, ações e locations (localizações). Seu deck é formado por essas cartas (mas não é obrigatório que tenha uma quantidade exata de cada tipo no deck) e por isso é importante compreender quais são as informações contidas nelas.
+
+### Personagem
+<table>
+    <tbody>
+        <tr>
+        <td width="260">
+            <img src="https://cdn.dreamborn.ink/images/en/cards/012/16757c825d6919ed84f0d8b13730b36399d8b5e2" width="250" height="350">
+        </td>
+        <td style="text-align: justify;">
+            Personagens tem duas ações básicas, questar (flexão da palavra "quest" como verbo em português, muito utilizada) e desafiar outros glimmers (no caso personagens e locations podem ser dsafiados). Também podem ter mais habilidades em suas caixas de texto. Apesar da carta de exemplo a esquerda não ter habilidades, somente um "flavor text" (termo para falar do texto que não se aplica regra, mas sim conta ou cita parte da história do universo do jogo).
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+### Item
+<table>
+    <tbody>
+        <tr>
+        <td width="260">
+            <img src="https://cdn.dreamborn.ink/images/en/cards/012/e729bf8e71fc7667c6c36c1795403561051edb16" width="250" height="350">
+        </td>
+        <td style="text-align: justify;">
+            Itens são glimmers que ao serem jogados ficam em campo (assim como personagens e locations) mas não fazem nada por si só. Os itens se tornam úteis com suas habilidades, que podem fazer diversas coisas.
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+### Ação
+<table>
+    <tbody>
+        <tr>
+        <td width="260">
+            <img src="https://cdn.dreamborn.ink/images/en/cards/011/6d30942484295f4e7bb87857144b40a2725782d7" width="250" height="350">
+        </td>
+        <td style="text-align: justify;">
+            Ações são cartas que fazem uma habilidade e logo em seguida são jogadas no descarte. Tem muitas habilidades diferentes e assim como os itens esse tipo de carta não faz nada por si só.
+            Ações ainda tem um sub-tipo (unica carta com subtipo até o momento), que são as canções, com uma propriedade específica onde personagens de custo maior ou igual a canção podem ficar exerted (virados 90°) para cantá-la.
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+### Location
+<table>
+    <tbody>
+        <tr>
+        <td width="260">
+            <img src="https://cdn.dreamborn.ink/images/en/cards/011/35e2ab7a3a3aac8e2318fedfbf47262c07a24f7b" width="250" height="350">
+        </td>
+        <td style="text-align: justify;">
+            Locations são glimmers que representam locais. Elas entram na mesa e não podem desafiar ou questar, mas podem ser desafiadas e no inicio de cada turno gera a quantidade de lore descrita na parte lateral direita da carta (perceba também que é a unica carta com um design horizontal, totalmente diferente do restante).
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+## Jogando
+Com o baralho na mão e com conhecimento de como é cada carta já é possível começar a jogar! Para isso é importante saber o que significa cada parte de uma carta, portanto vou explica-las no inicio desse tópico. Vamos lá!
+* Observação antes de comerçarmos: Não é simples falar de cada parte da carta sem uma imagem numerada de exemplo. Esse tipo de conteudo é fácil de encontrar no manual simples oficial. Aqui vou me referir as cartas do tópico anterior.
+### Partes de uma carta
+<p align="center">
+    <img src="https://wiki.mushureport.com/images/8/8f/Cost.png" width="117" height="100" >
+<p/>
+Começando pelo custo da carta. Uma carta tem o seu custo na parte superior esquerda. Toda carta tem esse custo. Porém algumas cartas tem uma borda dourada (imagem acima) em volta de seu custo, perceba que o personagem e a location exemplo têm esse custo, mas o item e a ação naõ têm.
+Em momentos que explicarei mais para frente você pode colocar uma carta com essa borda na mesa (na área do tinteiro) virada para baixo. Essa carta representará uma tinta, podendo ficar exerted (virada 90°) para pagar o custo de 1 de uma carta (é necessário virar a quantidade de cartas no tinteiro que a carta que será jogada exige).
+
+#### Custo
+Logo abaixo do custo temos a imagem. Ela é meramente ilustrativa, e representa a carta, mas não tem nenhum efeito sobre as regras do jogo. É importante falar também que a partir daqui as cartas de location começam a ter seu design na horizontal, portanto para ver a carta de location corretamente mantenha-a virada 90°.
+
+#### Nome da carta
+A primeira informação que precisamos ver na carta é seu nome. Ele está no centro da faixa colorida no meio da carta (alinhado a esquerda no caso do personagem). Esse nome é acompanhado de sua versão no caso de personagens e locations, e a combinação dessas 2 informações determinam se a carta é a mesma ou não, independentemente de sua arte ou número de coleção.
+
+#### Ataque, Força de vontade e Custo de movimentação
+Nessa mesma faixa colorida (alinhados ao nome) é possível ver até 3 valores diferentes. No caso do personagem temos o _ataque_ e a _força de vontade_. O _ataque_ é o primeiro valor da esquerda para a direita (com uma borda de estrela), é o dano que o personagem causa quando desafia ou é desafiado. Já a _força de vontade_ (com uma borda de escudo, a direita das cartas de personagem e location) é a quantidade de dano que o personagem ou location deve receber para ser banido.
+O _custo de movimentação_ é o numero a esquerda da carta de location (com uma borda de custo com uma seta para baixo, lembrando que estou me referindo a carta na horizontal), esse custo é a quantidade de tinta que devemos pagar para mover um personagem para dentro dessa localização. Não há nenhuma vantagem em mover um personagem para dentro de uma localização, as únicas vantagens que serão obtidas é quando o personagem ou location tem habilidades que se referem ao personagem estar dentro de uma location.
+
+#### Tipo de tinta e tipo de carta
+A faixa colorida da carta é dividida pela parte clara (acima) e a parte escura (abaixo). A parte escura tem um simbolo a esquerda, que é o simbolo do tipo de tinta daquela carta (é importante dizer aqui que uma carta tem seu tipo de tinta definido unicamente por esse simbolo e não necessariamente pelas cores dominantes ou do design da carta), podendo ter mais de um tipo de tinta em alguns casos. Já o texto centralizado nessa mesma linha é o tipo de carta, separado por um ponto central (●) do subtipo. Personagens têm o tipo storyborn, dreamborn ou floodborn. O subtipo pode ter vários, mas vou dar atenção às canções, que são do tipo ação (action) mas tem o subtipo song (canção).
+
+#### Finalmente, mãos na massa!
+Lorcana é um jogo de cartas jogado em turnos alternados, ou seja, cada jogador terá um turno, alternadamente, para avançar no jogo. Cada turno tem uma ordem especifica de fases, que são:
+* Ready (preparar cartas da mesa)
+* Set (fase de inicio, onde habilidaes que acontecem no inicio acontecem)
+* Draw (compra da carta do turno)
+* Main phase (fase genérica onde você pode fazer ações, ativar habilidades, questar e desafiar)
+###
+    Ready - aqui é a fase onde "preparamos" as cartas da mesa. Isso significa desvirar (deixar na vertical) as cartas que não sejam de location. O termo "ready" é usado para falar de uma carta pronta ou preparada, que não tenha sido exerted (virada) nesse turno ainda. Nessa fase desviramos nossas cartas para que elas estejam disponiveis para virar.
+
+###
+    Set - nessa fase algumas habilidades que acontecem no inicio do seu turno acontecem, um exemplo simples que temos é a location gerar lore.
+
+###
+    Draw - A fase mais simples de todas, todo turno o jogador daquele turno deve comprar uma carta, e nessa fase que essa compra acontece.
+
+###
+    Fase final do turno - Aqui habilidades que acontecem "no fim do turno" são realizadas. Também acontecem checagens gerais do jogo e a mudança de jogador ativo (basicamente é o "dono" do turno).
+
+###
+    Main phase - a fase principal, maior de todas, onde quase todas as suas decisões serão tomadas. O que você pode fazer nessa fase é:
+    * Tintar (ink) uma carta
+    * Jogar uma carta.
+    * Usar habilidades de itens, personagens e locations.
+    * Mover um personagem para uma location.
+    * Tomar uma ação com um personagem seco (personagem que não está fresco, ou seja, está em jogo desde o inicio do seu turno):
+      * Questar.
+      * Desafiar um personagem virado ou uma location do oponente.
+      * Usar uma habilidade que requeira que o personagem vire (fique exerted).
+
+#### Tinteiro (inkwell)
+A inkweel (ou tinteiro) é uma parte da mesa onde ficam as cartas viradas de cabeça para baixo. Durante a fase principal você pode colocar até uma carta tintavel (com a borda dourada) da sua mão nessa área virada de cabeça para baixo (importante ressaltar que é necessário mostrar essa carta para o seu oponente, para que ele comprove que a carta que você escolheu tem a borda dourada, podendo se tornar uma tinta com esse processo). Caso faça isso essa carta se torna uma tinta e pode ser virada para pagar o custo de cartas que você quer jogar.
+
+#### Jogando uma carta
+Se você tiver cartas na tinta suficientes você pode vira-las 90° para pagar o custo de tinta da carta em sua mão. Assim você pode joga-la. Caso seja uma ação ou canção ela vai fazer um efeito e ir diretamente para o descarte. Porém quando você jogar personagens, itens e locations eles permanecerão na mesa, te dando vantagens até que algo (como dano ou cartas com efeito de banimento) coloquem essa carta em seu descarte (seja banida).
+
+#### Questando
+Personagens que estavam na mesa no inicio do seu turno estarão "secos", ou seja, poderão virar para fazer coisas, sejam essas coisas questar, desafiar, cantar ou até mesmo fazer habilidades que tenham o símbolo de virar em seu custo.
+Questar é a principal forma de ganhar o jogo. Para questar você deve informar o oponente que o personagem irá fazer aquilo, virar a carta do personagem 90° e então adicionar a quantidade de lore definida na carta para o seu contador de lore geral. Mas atenção!!! Personagens já virados não podem virar novamente para agir, assim como existem habilidades e condições que podem impedir o personagem de fazer isso.
+
+#### Desafiando
+Personagens secos também podem desafiar. Para desafiar é necessário avisar o oponente que irá desafiar, informando qual personagem ou location do oponente você quer desafiar (o personagem que será desafiado precisa estar virado), virar o seu próprio personagem e assim o desafio ocorre. No desafio o seu personagem irá tomar dano igual ao ataque do personagem desafiado e o personagem ou location desafiado irá tomar dano igual ao ataque do seu personagem. Esse dano é colocado nos personagens e locations em forma de marcadores, usualmente utilizando dados, que não saem dos personagens até que eles saiam da mesa ou alguma habilidade mova/remova esse dano.
+
+#### Movendo personagens em locations
+É possível pagar o custo de movimentação de uma location para colocar um personagem que já esteja na mesa dentro daquela location. Assim habilidades da própria location e do personagem que precisem que essa situação exista ou aconteça podem ativar. Atenção! Não é possível retirar um personagem de dentro de uma location. A unica forma de um personagem sair de uma location é se ele for banido, se a location for banida ou se você pagar o custo de movimentação para que o personagem vá para outra location que esteja na mesa.
+
+#### Como ganhar (ou perder) o jogo
+Para ganhar o jogo é necessário acumular 20 pontos de lore (história). Assim que um jogador ganha seu vigéssimo ponto de lore ele é declarado vencedor. Existe ainda uma outra maneira de ganhar/perder o jogo. Caso o oponente chegue no fim do seu turno sem cartas no descarte então ele perde o jogo.
+
+# Conclusão
+Com essas explicações rápidas é possível começar a jogar Lorcana. Não se assuste caso algumas cartas contradizerem o que está escrito aqui ou nas regras oficiais. Jogos de cartas colecionáveis são em sua maioria um jogo de distorcer regras, o que significa que as cartas tem habilidades que mudam as regras e o jeito do jogo funcionar. Assim você molda a mesa e a partida ao seu prazer.
+
+Lembre-se de buscar por ajuda, buscar por pessoas para jogar com você e aprenderem. Quanto mais pessoas jogando mais divertido fica (seja jogando paralelamente ou até mesmo numa mesa com vários jogadores uns contra os outros!).

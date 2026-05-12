@@ -47,6 +47,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 * Infinite Scroll
 
+## Write articles
+
+* Deckbuilding
+* Analise do meta
+
 ## Regards
 
 This repository was created with [Create React App](https://github.com/facebook/create-react-app) 
