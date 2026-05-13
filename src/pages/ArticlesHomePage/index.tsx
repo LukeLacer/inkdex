@@ -16,7 +16,7 @@ const ArticlesHomePage = () => {
                 search: `?${createSearchParams({ title: articleTitle })}`,
             })
         }
-    }   
+    }
     return (
         <div className='articles-home-wrapper'>
             {

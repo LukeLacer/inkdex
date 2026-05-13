@@ -7,10 +7,9 @@ import { ArticleType } from '../../types'
 type ArticleItemProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { article: ArticleType }
 
 const ArticleItem = (props: ArticleItemProps) => {
-    const { className, article, ...otherProps } = props
+    const { className, article, style, ...otherProps } = props
 
-    return <div className={getClass(className, 'article-item-main')} {...otherProps}>
-        <div className='colored-banner'/>
+    return <div style={{ backgroundImage: `url(../img/articles_image/banner_${article.fileName}.png` }} className={getClass(className, 'article-item-main')} {...otherProps}>
         <h1>{article.title}</h1>
     </div>
 }

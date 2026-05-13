@@ -85,6 +85,19 @@
             }
         }
     }
+    .article-header {
+        .article-banner {
+            max-width: 100%;
+        }
+
+        .article-title {
+            transform: translate(0, -100%);
+            font-size: 2.5rem;
+            color: var(--secondary);
+            text-shadow: 3px 3px 9px var(--neutral);
+            padding: 0 0 12px 12px;
+        }
+    }
 }
 
 @media (max-width: 768px) {

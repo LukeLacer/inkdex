@@ -49,7 +49,10 @@ const Articles = () => {
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </Button>
             }
-            <h1>{selectedArticle.title}</h1>
+            <div className='article-header'>
+                {content && <img className='article-banner' src={`../img/articles_image/banner_${selectedArticle.fileName}.png`} />}
+                <h1 className='article-title'>{selectedArticle.title}</h1>
+            </div>
             {
                 content ? <div className='article-visualizer'>{parse(content)}</div>
                 : <ArticlesHomePage/>
