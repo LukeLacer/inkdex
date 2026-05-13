@@ -46,6 +46,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ## TODO
 
 * Infinite Scroll
+* Create branch to use and test Lorcast instead search engine (using https://lodash.com/docs/#debounce to delay api requests)
 
 ## Write articles
 

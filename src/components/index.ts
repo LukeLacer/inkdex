@@ -8,5 +8,6 @@ import DeckCard from './DeckCard'
 import ThemeChangeButton from './ThemeChangeButton'
 import TabItem from './TabItem'
 import TabWrapper from './TabWrapper'
+import ArticleItem from './ArticleItem'
 
-export { Button, Input, Card, Header, SearchBar, DropdownMenu, DeckCard, ThemeChangeButton, TabItem, TabWrapper }
+export { Button, Input, Card, Header, SearchBar, DropdownMenu, DeckCard, ThemeChangeButton, TabItem, TabWrapper, ArticleItem }

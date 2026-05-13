@@ -1,0 +1,7 @@
+.articles-home-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px;
+    padding: 24px;
+}

@@ -7,5 +7,6 @@ import Deckbuilder from './Deckbuilder'
 import MyDecks from './MyDecks'
 import Deckviewer from './Deckviewer'
 import Articles from './Articles'
+import ArticlesHomePage from './ArticlesHomePage'
 
-export { Home, Result, Loading, DragAndDropExample, CardView, Deckbuilder, MyDecks, Deckviewer, Articles }
+export { Home, Result, Loading, DragAndDropExample, CardView, Deckbuilder, MyDecks, Deckviewer, Articles, ArticlesHomePage }

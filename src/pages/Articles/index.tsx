@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 import parse from 'html-react-parser';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import articles from '../../data/articles.json'
-import { TabItem, TabWrapper } from '../../components';
+import { Button } from '../../components';
 import { getArticleFile } from '../../utils';
+import ArticlesHomePage from '../ArticlesHomePage';
+import { ArticleType } from '../../types';
 
 import './styles.css'
-import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom';
-
-type ArticleType = {
-    title: string;
-    fileName: string;
-}
 
 const Articles = () => {
     const [searchParams] = useSearchParams();
@@ -21,7 +20,11 @@ const Articles = () => {
 
     useEffect(() => {
         const title = searchParams.get("title")
-        if (!title) return
+        if (!title) {
+            setSelectedArticle({} as ArticleType)
+            setContent('')
+            return
+        }
         const articleToSelect = articles.find(e => e.title === title) || {} as ArticleType
         setSelectedArticle(articleToSelect)
     }, [searchParams])
@@ -29,7 +32,7 @@ const Articles = () => {
     useEffect(() => {
         const fetchArticleData = async () => {
             try {
-                getArticleFile(`./articles/${selectedArticle.fileName}`).then((file) => {
+                getArticleFile(`./articles/${selectedArticle.fileName}.html`).then((file) => {
                     setContent(file)
                 })
             } catch (error) {
@@ -39,31 +42,18 @@ const Articles = () => {
         if (selectedArticle.fileName)
             fetchArticleData()
     }, [selectedArticle])
-
-    const handleChangeSelectedArticle = (article: ArticleType) => {
-        const params = { title: article.title };
-
-        if (article.title) {
-            navigate({
-                pathname: '/articles',
-                search: `?${createSearchParams(params)}`,
-            })
-            setSelectedArticle(article)
-        }
-    }   
     
     return (
         <div className='articles-page-wrapper'>
-            <TabWrapper>
-                {
-                    articles.map(art => {
-                        return <TabItem key={art.title} selected={art.title === selectedArticle.title} onClick={() => handleChangeSelectedArticle(art)}>{art.title}</TabItem>
-                    })
-                }
-            </TabWrapper>
-            <div className='article-visualizer'>
-                {content ? parse(content) : null}
-            </div>
+            { content && <Button className='go-back-to-articles' onClick={() => navigate('/articles')}>
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                </Button>
+            }
+            <h1>{selectedArticle.title}</h1>
+            {
+                content ? <div className='article-visualizer'>{parse(content)}</div>
+                : <ArticlesHomePage/>
+            }
         </div>
     )
 }
