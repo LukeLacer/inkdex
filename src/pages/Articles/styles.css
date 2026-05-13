@@ -1,0 +1,45 @@
+.articles-page-wrapper {
+    padding: 24px;
+
+    .article-visualizer {
+        text-align: justify;
+        div {
+            background-color: var(--primary);
+            margin: 16px;
+            padding: 12px;
+        }
+
+        p {
+            text-indent: 40px;
+        }
+
+        table {
+            margin: 0 64px;
+            padding-top: 12px;
+            border-top: 1px solid white;
+        }
+
+        h1 {
+            font-size: 32px;
+            padding: 24px 0 8px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            padding: 16px 0 8px 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            padding: 12px 0 8px 32px;
+        }
+
+        ul {
+            padding: 0 0 0 24px;
+
+            li {
+                margin: 10px 0;
+            }
+        }
+    }
+}

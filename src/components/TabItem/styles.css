@@ -1,0 +1,23 @@
+.tab-item-main {
+    color: var(--secondary);
+    padding: 0 6px 3px 6px;
+    border: none;
+    background: none;
+}
+
+.tab-selected {
+    border-bottom: 1px solid var(--secondary);
+}
+
+@media (hover: hover) {
+    .tab-item-main:hover {
+        color: var(--tertiary);
+        border-bottom: 1px solid var(--tertiary);
+        cursor: pointer;
+    }
+}
+
+.tab-item-main:active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+}

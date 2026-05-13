@@ -8,7 +8,8 @@ export const homeStrings = {
 export const headerStrings = {
     homeButton: 'INÍCIO',
     deckbuilderButton: 'CRIAR DECK',
-    myDecksButton: 'DECKS'
+    myDecksButton: 'DECKS',
+    articlesButton: 'ARTIGOS'
 }
 
 export const changeTheme = 'Tema';

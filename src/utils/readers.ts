@@ -22,4 +22,19 @@ const unzipPublicFile = async (filePath: string): Promise<string | undefined> =>
     return content;
 };
 
-export { unzipPublicFile };
+const getArticleFile = async (filePath: string): Promise<string | undefined> => {
+  try {
+    const response = await fetch(filePath);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const markdownText = await response.text();
+    return markdownText;
+  } catch (error) {
+    console.error("Could not fetch the markdown file:", error);
+  }
+}
+
+export { unzipPublicFile, getArticleFile };

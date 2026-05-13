@@ -13,7 +13,8 @@ const Header = () => {
     const burgerItems = [
         <Button key='home' onClick={() => navigate('')}>{headerStrings.homeButton}</Button>,
         <Button key='deckbuilder' onClick={() => navigate('deckbuilder')}>{headerStrings.deckbuilderButton}</Button>,
-        <Button key='mydecks' onClick={() => navigate('mydecks')}>{headerStrings.myDecksButton}</Button>
+        <Button key='mydecks' onClick={() => navigate('mydecks')}>{headerStrings.myDecksButton}</Button>,
+        <Button key='articles' onClick={() => navigate('articles')}>{headerStrings.articlesButton}</Button>
     ]
 
     const configurationItems = [

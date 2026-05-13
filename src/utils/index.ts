@@ -1,5 +1,5 @@
 import { homeStrings, headerStrings, changeTheme, myDecksStrings, deckBuilderStrings, deckViewerStrings } from './strings'
-import { unzipPublicFile } from './readers'
+import { unzipPublicFile, getArticleFile } from './readers'
 import { parseCSVToJSON } from './parser'
 import { saveDeck, getDecks, getDeckByTitleVersion } from './storage'
 
@@ -10,4 +10,4 @@ const getClass = (
     return newClass ? newClass + " " + originalClass : originalClass
 }
 
-export { homeStrings, headerStrings, unzipPublicFile, parseCSVToJSON, changeTheme, getClass, saveDeck, getDecks, getDeckByTitleVersion, myDecksStrings, deckBuilderStrings, deckViewerStrings }
+export { homeStrings, headerStrings, getArticleFile, unzipPublicFile, parseCSVToJSON, changeTheme, getClass, saveDeck, getDecks, getDeckByTitleVersion, myDecksStrings, deckBuilderStrings, deckViewerStrings }
