@@ -1,7 +1,7 @@
-.burger-wrapper {
+.dropdown-wrapper {
     position: relative;
 
-    .burger-button {
+    .dropdown-button {
         background-color: var(--primary);
         width: 40px;
         height: 40px;
@@ -12,14 +12,13 @@
         justify-content: center;
     }
     @media (hover: hover) {
-        .burger-button:hover {
+        .dropdown-button:hover {
             cursor: pointer;
         }
     }
 
-    .burger-menu {
+    .dropdown-menu {
         position: absolute;
-        right: 0;
         margin-top: 5px;
         background-color: var(--neutral-background);
         padding: 12px;
@@ -30,13 +29,13 @@
         gap: 12px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
-        .burger-menu-item {
+        .dropdown-menu-item {
             display: flex;
             justify-content: space-between;
             color: var(--dark-font-color);
         }
         @media (hover: hover) {
-            .burger-menu-item:hover {
+            .dropdown-menu-item:hover {
                 cursor: pointer;
             }
         }

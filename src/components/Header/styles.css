@@ -10,4 +10,20 @@
         flex-direction: row;
         gap: 24px;
     }
+
+    .page-links-burger {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-wrapper {
+        .page-links-burger {
+            display: block;
+        }
+
+        .page-links-wrapper {
+            display: none;
+        }
+    }
 }

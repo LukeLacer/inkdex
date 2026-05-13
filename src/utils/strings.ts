@@ -11,9 +11,7 @@ export const headerStrings = {
     myDecksButton: 'DECKS'
 }
 
-export const burgerMenuStrings = {
-    changeTheme: 'Tema'
-}
+export const changeTheme = 'Tema';
 
 export const deckBuilderStrings = {
     initialVersion: '1.0.0',
