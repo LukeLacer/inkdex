@@ -13,10 +13,19 @@
             text-indent: 40px;
         }
 
-        table {
-            margin: 0 64px;
-            padding-top: 12px;
-            border-top: 1px solid white;
+        .image-with-description {
+            display: flex;
+            max-width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin: auto;
+
+            div {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
         }
 
         h1 {
@@ -39,6 +48,22 @@
 
             li {
                 margin: 10px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-page-wrapper {
+        .article-visualizer {
+            .image-with-description {
+                margin: 0;
+                max-width: none;
+                flex-direction: column;
+            }
+            div {
+                justify-content: center;
+                align-items: center;
             }
         }
     }
