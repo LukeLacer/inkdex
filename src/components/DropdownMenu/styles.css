@@ -21,13 +21,19 @@
         position: absolute;
         margin-top: 5px;
         background-color: var(--neutral-background);
-        padding: 12px;
         border-radius: 6px;
-        width: 110px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+        .button-main {
+            background: none;
+            border-radius: 0;
+        }
+
+        .button-main:not(:last-child) {
+            border-bottom: 1px solid var(--neutral);
+        }
 
         .dropdown-menu-item {
             display: flex;
