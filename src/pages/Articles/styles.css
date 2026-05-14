@@ -6,7 +6,7 @@
         div {
             background-color: var(--primary);
             margin: 16px;
-            padding: 12px;
+            padding: 12px 24px;
         }
 
         p {
