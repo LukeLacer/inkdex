@@ -1,5 +1,6 @@
 [
     { "title": "Como jogar", "fileName": "how_to_play" },
     { "title": "Dicas gerais", "fileName": "tips" },
-    { "title": "META Game", "fileName": "meta_analyse" }
+    { "title": "META Game", "fileName": "meta_analyse" },
+    { "title": "Montando um deck", "fileName": "deck_building" }
 ]
