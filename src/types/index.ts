@@ -1,6 +1,4 @@
-import { CSSProperties } from "react";
+import { CardType } from "./lorcast";
+import { Article } from "./article";
 
-export type ArticleType = {
-    title: string;
-    fileName: string;
-}
+export type { CardType, Article }

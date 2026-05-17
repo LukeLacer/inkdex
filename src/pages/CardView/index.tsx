@@ -1,37 +1,42 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { findCardByName } from '../../searchEngine';
-import { Card } from '../../searchEngine/types';
 import './styles.css'
-import { DataContext, DataContextType } from '../../contexts';
+import { CardType } from '../../types';
+import { cardService } from '../../services';
+import { LoadingContext, LoadingContextType } from '../../contexts';
 
 const CardView = () => {
-    const { allCards } = useContext<DataContextType>(DataContext);
     const [searchParams] = useSearchParams();
-    const [card, setCard] = useState<Card>({} as Card)
+    const [card, setCard] = useState<CardType>()
+    const { setLoading } = useContext<LoadingContextType>(LoadingContext);
 
     useEffect(() => {
-        const card = searchParams.get("card")
-        if (!card || !allCards || allCards.length === 0) return
-        const cardToSee = findCardByName(allCards, card)
-        if (!cardToSee) return
-        setCard(cardToSee)
-    }, [searchParams, allCards])
+        setLoading(true)
+        const set = searchParams.get("set")
+        const number = searchParams.get("number")
+        if (!set || !number) return
+        cardService.getCardBySetAndNumber(set, number).then((res) => {
+            setCard(res)
+            setLoading(false)
+        })
+    }, [])
 
     return (
-        <div className='card-view-wrapper'>
-            <img src={card.Image} alt={`${card.Name} card`} />
-            <div className='card-data-wrapper'>
-                {
-                    Object.entries(card).map(([key, value]) => {
-                        if (key === 'Image') return null
-                        return <p key={key}>{`${key}: ${value}`}</p>
-                    })
-                }
-                {card.Name}
+        card
+            ? <div className='card-view-wrapper'>
+                <img src={card?.image_uris?.digital?.large} alt={`${card?.name} card`} />
+                <div className='card-data-wrapper'>
+                    {
+                        Object.entries(card).map(([key, value]) => {
+                            if (key === 'Image') return null
+                            return <p key={key}>{`${key}: ${value}`}</p>
+                        })
+                    }
+                    {card?.name}
+                </div>
             </div>
-        </div>
+            : <></>
     )
 }
 

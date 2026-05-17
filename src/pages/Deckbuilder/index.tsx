@@ -4,13 +4,10 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import './styles.css'
 import { Button, Input } from '../../components';
-import { DataContext, DataContextType } from '../../contexts';
 import { saveDeck, getDeckByTitleVersion, deckBuilderStrings } from '../../utils';
-import { deckCheck } from '../../searchEngine';
 
 const Deckbuilder = () => {
     const [searchParams] = useSearchParams();
-    const { allCards } = useContext<DataContextType>(DataContext);
     const [decklist, setDecklist] = useState('');
     const [maybeboard, setMaybeboard] = useState('');
     const [title, setTitle] = useState<string>('')
@@ -54,13 +51,8 @@ const Deckbuilder = () => {
     }
 
     const confirmDecklist = () => {
-        if (!allCards || allCards.length === 0) return
         if (!decklist) return
         try {
-            const deckDefinitions = deckCheck(allCards, decklist)
-
-            if (deckDefinitions.deckHasError) return
-
             saveDeck({
                 title: title?.trim(),
                 version: version?.trim(),

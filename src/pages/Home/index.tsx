@@ -3,11 +3,11 @@ import { createSearchParams, useNavigate } from 'react-router-dom'
 
 import { SearchBar, Button } from '../../components'
 import { homeStrings } from '../../utils'
+
 import './styles.css'
 
 const Home = () => {
     const [searchValue, setSearchValue] = useState<string>('')
-
     const navigate = useNavigate()
 
     const clickSearchHandler = () => {

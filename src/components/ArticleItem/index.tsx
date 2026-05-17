@@ -2,9 +2,9 @@ import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 import './styles.css'
 import { getClass } from '../../utils'
-import { ArticleType } from '../../types'
+import { Article } from '../../types'
 
-type ArticleItemProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { article: ArticleType }
+type ArticleItemProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { article: Article }
 
 const ArticleItem = (props: ArticleItemProps) => {
     const { className, article, style, ...otherProps } = props
