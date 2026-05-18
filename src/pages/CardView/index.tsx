@@ -30,7 +30,7 @@ const CardView = () => {
                     {
                         Object.entries(card).map(([key, value]) => {
                             if (key === 'Image') return null
-                            return <p key={key}>{`${key}: ${value}`}</p>
+                            return <pre key={key}>{`${key}: ${value}`}</pre>
                         })
                     }
                     {card?.name}

@@ -32,7 +32,7 @@ const Card = ({ card }: CardProps) => {
         <div className='right-wrapper'>
             <p>{cost}</p>
             <p>{name}</p>
-            <p>{type} {classifications ? " - " : ''} {classifications}</p>
+            <p>{type} {classifications ? " - " : ''} {classifications.join(" ")}</p>
             <p>{rarity}</p>
         </div>
     </div>
