@@ -27,13 +27,13 @@ const CardView = () => {
             ? <div className='card-view-wrapper'>
                 <img src={card?.image_uris?.digital?.large} alt={`${card?.name} card`} />
                 <div className='card-data-wrapper'>
+                    {`${card?.name}${card?.version ? ' - ' : ''}${card?.version}`}
                     {
                         Object.entries(card).map(([key, value]) => {
                             if (key === 'Image') return null
                             return <pre key={key}>{`${key}: ${value}`}</pre>
                         })
                     }
-                    {card?.name}
                 </div>
             </div>
             : <></>
