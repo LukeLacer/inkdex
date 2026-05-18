@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { Card, Input } from '../../components'
+import { Card, Input, SearchBar } from '../../components'
 
 import './styles.css'
 import { CardType } from '../../types'
@@ -9,7 +9,7 @@ import { cardService } from '../../services'
 import { LoadingContext, LoadingContextType } from '../../contexts'
 
 const Result = () => {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const [searchResults, setSearchResults] = useState<CardType[]>([])
     const [inputSearchValue, setInputSearchValue] = useState<string>('')
     const [valueToSearch, setValueToSearch] = useState<string>('')
@@ -23,6 +23,7 @@ const Result = () => {
             setSearchResults(res)
             setLoading(false)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [valueToSearch])
 
     useEffect(() => {
@@ -52,12 +53,12 @@ const Result = () => {
 
     return (
         <div className="result-wrapper">
-            <Input
-                type="text"
-                autoFocus
-                value={inputSearchValue}
+            <SearchBar
                 onChange={(e) => setInputSearchValue(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
+                onClickSearchButton={() => clickSearchHandler()}
+                value={inputSearchValue}
+                autoFocus
             />
             <div className="cards-wrapper">{cardsToShow()}</div>
         </div>

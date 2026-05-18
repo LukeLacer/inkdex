@@ -1,5 +1,35 @@
-.homepage-searchbar {
-    max-width: 500px;
+.search-bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    width: fit-content;
+    position: relative;
+
+    .homepage-searchbar {
+        max-width: 500px;
+    }
+
+    .button-main {
+        padding: 12px;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: none;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        svg, path {
+            color: var(--dark-font-color);
+        }
+    }
+
+    .button-main:active {
+        box-shadow: none;
+        transform: translate(0, -50%);
+    }
 }
 
 @media (min-width: 540px) {

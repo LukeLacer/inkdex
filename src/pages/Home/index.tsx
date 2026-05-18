@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom'
 
-import { SearchBar, Button } from '../../components'
+import { SearchBar } from '../../components'
 import { homeStrings } from '../../utils'
 
 import './styles.css'
@@ -37,10 +37,8 @@ const Home = () => {
                     className='homepage-searchbar'
                     onChange={(e) => setSearchValue(e.target.value)}
                     onKeyDown={(e) => handleKeyDown(e)}
+                    onClickSearchButton={() => clickSearchHandler()}
                 />
-                <Button onClick={() => clickSearchHandler()}>
-                    {homeStrings.searchButtonLabel}
-                </Button>
             </div>
         </div>
     )

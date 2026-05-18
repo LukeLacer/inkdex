@@ -20,7 +20,7 @@ const ArticlesHomePage = () => {
     return (
         <div className='articles-home-wrapper'>
             {
-                articles.map(article => <ArticleItem onClick={() => handleChangeSelectedArticle(article.title)} article={article} />)
+                articles.map((article, i) => <ArticleItem key={i} onClick={() => handleChangeSelectedArticle(article.title)} article={article} />)
             }
         </div>
     )
