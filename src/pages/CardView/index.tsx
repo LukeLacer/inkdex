@@ -37,6 +37,7 @@ const CardView = () => {
                     {`${card?.name}${card?.version ? ' - ' : ''}${card?.version}`}
                     <pre>{card.text}</pre>
                     <p>{`${card.set.code} - ${card.set.name}`}</p>
+                    <p style={{display: 'flex'}}><img style={{maxHeight: '1rem', marginRight: '12px'}} src={`../img/symbols/rarity-${card.rarity.replace('_', '').toLowerCase()}.png`} />{card.rarity.replace('_', ' ')}</p>
                     <div>{
                         Object.entries(card.prices).map(([key, value]) => {
                             return <pre key={key}>{`(TCGPlayer) ${key.includes('foil') ? 'foil' : 'normal'}: ${formatUsdCurrency(value!)}`}</pre>
