@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { createSearchParams, useSearchParams } from 'react-router-dom'
 
 import './styles.css'
 import { CardType } from '../../types';
 import { cardService } from '../../services';
 import { LoadingContext, LoadingContextType } from '../../contexts';
+import { formatBrlCurrency, formatUsdCurrency } from '../../utils';
 
 const CardView = () => {
-    const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams()
     const [card, setCard] = useState<CardType>()
+    const [cardBasicParams, setCardBasicParams] = useState('');
     const { setLoading } = useContext<LoadingContextType>(LoadingContext);
 
     useEffect(() => {
@@ -18,6 +20,11 @@ const CardView = () => {
         if (!set || !number) return
         cardService.getCardBySetAndNumber(set, number).then((res) => {
             setCard(res)
+            const params = {
+                view: 'cards/search',
+                card: `${res?.name}${res?.version ? ' - ' : ''}${res?.version}`
+            }
+            setCardBasicParams(`https://www.ligalorcana.com.br/?${createSearchParams(params)}`)
             setLoading(false)
         })
     }, [])
@@ -28,12 +35,14 @@ const CardView = () => {
                 <img src={card?.image_uris?.digital?.large} alt={`${card?.name} card`} />
                 <div className='card-data-wrapper'>
                     {`${card?.name}${card?.version ? ' - ' : ''}${card?.version}`}
-                    {
-                        Object.entries(card).map(([key, value]) => {
-                            if (key === 'Image') return null
-                            return <pre key={key}>{`${key}: ${value}`}</pre>
+                    <pre>{card.text}</pre>
+                    <p>{`${card.set.code} - ${card.set.name}`}</p>
+                    <div>{
+                        Object.entries(card.prices).map(([key, value]) => {
+                            return <pre key={key}>{`(TCGPlayer) ${key.includes('foil') ? 'foil' : 'normal'}: ${formatUsdCurrency(value!)}`}</pre>
                         })
-                    }
+                    }</div>
+                    <a href={cardBasicParams} target='_blank'>Busque por essa carta na Liga</a>
                 </div>
             </div>
             : <></>
