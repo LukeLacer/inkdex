@@ -36,7 +36,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     signInGoogleWithGooglePopup().then(res => {
       localStorage.setItem('auth', JSON.stringify(res))
-      console.log(JSON.stringify(res))
       setIsAuthenticated(true)
       setLoading(false)
     })
