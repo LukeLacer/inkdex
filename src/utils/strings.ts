@@ -9,7 +9,13 @@ export const headerStrings = {
     homeButton: 'INÍCIO',
     deckbuilderButton: 'CRIAR DECK',
     myDecksButton: 'DECKS',
-    articlesButton: 'ARTIGOS'
+    articlesButton: 'ARTIGOS',
+    enterWithGoogle: 'Entre com o Google'
+}
+
+export const loadingAuth = {
+    logging: 'Entrando com o Google...',
+    loggingOut: 'Saindo da sua conta...'
 }
 
 export const changeTheme = 'Tema';

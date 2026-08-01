@@ -5,6 +5,7 @@ import './styles.css'
 import { DropdownMenu, Button, ThemeChangeButton } from '../index'
 import { headerStrings } from '../../utils'
 import { ThemeContext, ThemeContextType } from '../../contexts'
+import LoginAccess from '../LoginAccess'
 
 const Header = () => {
     const navigate = useNavigate()
@@ -28,7 +29,10 @@ const Header = () => {
                 {burgerItems.map(el => el)}
             </div>
         </div>
-        <DropdownMenu type='configuration' items={configurationItems} />
+        <div className='left-wrapper'>
+            <LoginAccess />
+            <DropdownMenu type='configuration' items={configurationItems} />
+        </div>
     </div>
 }
 

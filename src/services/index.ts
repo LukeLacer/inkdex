@@ -1,3 +1,4 @@
-import { cardService } from "./cardService";
+import { cardService } from "./cardService"
+import { signInGoogleWithGooglePopup } from "./firebase"
 
-export { cardService }
+export { cardService, signInGoogleWithGooglePopup }

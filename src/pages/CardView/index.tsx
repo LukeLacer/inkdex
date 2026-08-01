@@ -5,7 +5,7 @@ import './styles.css'
 import { CardType } from '../../types';
 import { cardService } from '../../services';
 import { LoadingContext, LoadingContextType } from '../../contexts';
-import { formatBrlCurrency, formatUsdCurrency } from '../../utils';
+import { formatUsdCurrency } from '../../utils';
 
 const CardView = () => {
     const [searchParams] = useSearchParams()
@@ -27,6 +27,7 @@ const CardView = () => {
             setCardBasicParams(`https://www.ligalorcana.com.br/?${createSearchParams(params)}`)
             setLoading(false)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -37,13 +38,13 @@ const CardView = () => {
                     {`${card?.name}${card?.version ? ' - ' : ''}${card?.version}`}
                     <pre>{card.text}</pre>
                     <p>{`${card.set.code} - ${card.set.name}`}</p>
-                    <p style={{display: 'flex'}}><img style={{maxHeight: '1rem', marginRight: '12px'}} src={`../img/symbols/rarity-${card.rarity.replace('_', '').toLowerCase()}.png`} />{card.rarity.replace('_', ' ')}</p>
+                    <p style={{display: 'flex'}}><img alt={card.rarity} style={{maxHeight: '1rem', marginRight: '12px'}} src={`../img/symbols/rarity-${card.rarity.replace('_', '').toLowerCase()}.png`} />{card.rarity.replace('_', ' ')}</p>
                     <div>{
                         Object.entries(card.prices).map(([key, value]) => {
                             return <pre key={key}>{`(TCGPlayer) ${key.includes('foil') ? 'foil' : 'normal'}: ${formatUsdCurrency(value!)}`}</pre>
                         })
                     }</div>
-                    <a href={cardBasicParams} target='_blank'>Busque por essa carta na Liga</a>
+                    <a href={cardBasicParams} target='_blank' rel="noreferrer">Busque por essa carta na Liga</a>
                 </div>
             </div>
             : <></>

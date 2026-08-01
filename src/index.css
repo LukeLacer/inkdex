@@ -31,6 +31,7 @@ html,
     --dark-font-color: #22262b;
     --neutral-background: #cfc5a3;
     --page-height: calc(100% - 77px);
+    --navbar-height: 45px;
 }
 [data-theme='dark'] {
     --primary: #2E1A47;

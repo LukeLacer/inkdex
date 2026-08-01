@@ -2,14 +2,16 @@ import { createRoot } from 'react-dom/client'
 
 import './index.css'
 import Routes from './Routes'
-import { LoadingProvider, ThemeProvider } from './providers'
+import { LoadingProvider, ThemeProvider, AuthProvider } from './providers'
 
 const container = document.getElementById('root')
 const root = createRoot(container!)
 root.render(<>
   <ThemeProvider>
       <LoadingProvider>
-        <Routes />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </LoadingProvider>
   </ThemeProvider>
 </>)

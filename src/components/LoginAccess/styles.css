@@ -1,0 +1,9 @@
+.login-button {
+    display: flex;
+    gap: 6px;
+    padding: 12px;
+
+    .google-icon {
+        color: var(--neutral);
+    }
+}
