@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,5 +22,14 @@ provider.setCustomParameters({
 
 // never need more than one authentication
 export const auth = getAuth(app);
+
+export const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error("Erro ao fazer logout:", error);
+  }
+}
+
 export const signInGoogleWithGooglePopup = () => signInWithPopup(auth, provider)
 export default app;

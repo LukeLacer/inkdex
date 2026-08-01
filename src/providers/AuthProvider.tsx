@@ -2,8 +2,10 @@ import React, { useState, ReactNode, useContext, useEffect } from 'react';
 
 import { defaultAuthContext, AuthContext, AuthContextType } from '../contexts/AuthContext';
 import { LoadingContext, LoadingContextType } from '../contexts';
-import { signInGoogleWithGooglePopup } from '../services';
+import { firebaseLogout, signInGoogleWithGooglePopup } from '../services';
 import { loadingAuth } from '../utils/strings';
+import { FirebaseAuth } from '../services';
+import { onAuthStateChanged } from 'firebase/auth';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -14,21 +16,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const { setLoading } = useContext<LoadingContextType>(LoadingContext);
 
   useEffect(() => {
-    const auth = localStorage.getItem('auth')
-    //TODO: Check if auth token is valid before set auth to true
-    if (auth) setIsAuthenticated(true)
+    onAuthStateChanged(FirebaseAuth, (user) => {
+      if (user) {
+        localStorage.setItem('auth', JSON.stringify(FirebaseAuth))
+        setIsAuthenticated(true)
+      } else {
+        localStorage.removeItem('auth')
+        setIsAuthenticated(false)
+      }
+    });
   }, [])
   
 
   const logout = () => {
     setLoading(true, loadingAuth.loggingOut)
-    //TODO: Create logout function
-
-    setTimeout(() => {
+    firebaseLogout().then(() => {
       localStorage.removeItem('auth')
       setIsAuthenticated(false)
       setLoading(false)
-    }, 1000);
+    })
   }
 
   const authenticate = async () => {

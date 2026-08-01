@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { Card, Input, SearchBar } from '../../components'
+import { Card, SearchBar } from '../../components'
 
 import './styles.css'
 import { CardType } from '../../types'
